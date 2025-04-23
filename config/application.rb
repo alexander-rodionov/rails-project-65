@@ -1,7 +1,7 @@
 require_relative "boot"
-require 'zip'
-require 'base64'
-require 'fileutils'
+require "zip"
+require "base64"
+require "fileutils"
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
@@ -28,21 +28,21 @@ def write_entries(entries, folder_path, zipfile, parent_path)
       write_entries(subdir, entry_path, zipfile, destination_path)
     else
       zipfile.get_output_stream(destination_path) do |f|
-        f.write(File.open(entry_path, 'rb').read)
+        f.write(File.open(entry_path, "rb").read)
       end
     end
   end
 end
 
 def convert_to_base64(file_path)
-  File.open(file_path, 'rb') do |file|
+  File.open(file_path, "rb") do |file|
     Base64.strict_encode64(file.read)
   end
 end
 
 # Usage
-folder_to_zip = '/project/test' # Replace with the path to the folder you want to zip
-zip_file_path = 'output.zip' # Path to the output zip file
+folder_to_zip = "/project/test" # Replace with the path to the folder you want to zip
+zip_file_path = "output.zip" # Path to the output zip file
 
 zip_folder(folder_to_zip, zip_file_path)
 base64_string = convert_to_base64(zip_file_path)

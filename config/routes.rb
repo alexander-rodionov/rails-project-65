@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
-
-
-
   # OmniAuth
 
-  get 'auth/:provider/callback', to: 'sessions#create'
-  get '/login', to: 'sessions#new'
-  
-  post 'auth/:provider', to: 'auth#request', as: :auth_request
-  get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
+  get "auth/:provider/callback", to: "sessions#create"
+  get "/login", to: "sessions#new"
+
+  post "auth/:provider", to: "auth#request", as: :auth_request
+  get "auth/:provider/callback", to: "auth#callback", as: :callback_auth
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
