@@ -8,8 +8,8 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-#prefix = "/project/"
-prefix = "#{Dir.pwd}/"
+prefix = "/project/"
+#prefix = "#{Dir.pwd}/"
 folder_to_zip = "#{prefix}test" # Replace with the path to the folder you want to zip
 zip_file_path = "output.zip" # Path to the output zip file
 
