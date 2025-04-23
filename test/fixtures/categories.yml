@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+personal_items:
+  name: Личные вещи
+
+transport:
+  name: Транспорт
+
+work:
+  name: Работа
+
+for_home:
+  name: Для дома и дачи
+
+property:
+  name: Недвижимость
+
+hobby:
+  name: Хобби и отдых
+
+electronics:
+  name: Электроника
+
+animals:
+  name: Животные

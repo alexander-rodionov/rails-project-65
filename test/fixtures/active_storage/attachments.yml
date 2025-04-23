@@ -1,0 +1,24 @@
+published:
+  name: image
+  record: published (Bulletin)
+  blob: png
+
+draft:
+  name: image
+  record: draft (Bulletin)
+  blob: png
+
+archive:
+  name: image
+  record: archive (Bulletin)
+  blob: png
+
+rejected:
+  name: image
+  record: rejected (Bulletin)
+  blob: png
+
+under_moderation:
+  name: image
+  record: under_moderation (Bulletin)
+  blob: png

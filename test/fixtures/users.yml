@@ -1,0 +1,14 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Ivan
+  email: one@test.ru
+
+two:
+  name: Dima
+  email: two@test.ru
+
+admin:
+  name: Nikolay
+  email: feycot@gmail.com
+  admin: true

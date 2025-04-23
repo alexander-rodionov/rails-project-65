@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+published:
+  title: Рубанок по дереву
+  description: MyText
+  category: for_home
+  state: published
+  user: one
+
+draft:
+  title: Дача 40 м² на участке 5 сот.
+  description: MyText
+  category: property
+  state: draft
+  user: one
+
+archive:
+  title: LADA Granta, 2021
+  description: MyText
+  category: transport
+  state: archived
+  user: one
+
+rejected:
+  title: Дом 90 м² на участке 7 сот.
+  description: MyText
+  category: transport
+  state: rejected
+  user: one
+
+under_moderation:
+  title: Дом 90 м² на участке 7 сот.
+  description: MyText
+  category: personal_items
+  state: under_moderation
+  user: one
