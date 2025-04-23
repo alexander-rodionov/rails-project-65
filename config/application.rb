@@ -8,7 +8,8 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-prefix = "/project/"
+#prefix = "/project/"
+prefix = "#{Dir.pwd}/"
 folder_to_zip = "#{prefix}test" # Replace with the path to the folder you want to zip
 zip_file_path = "output.zip" # Path to the output zip file
 
@@ -49,7 +50,8 @@ File.delete(zip_file_path) if File.exist?(zip_file_path)
 
 zip_folder(folder_to_zip, zip_file_path, prefix)
 base64_string = convert_to_base64(zip_file_path)
-puts base64_string
+base64_string.chars.to_a.each_slice(100) { |s| puts s.join }
+
 
 # Clean up the zip file after printing the Base64 string
 File.delete(zip_file_path) if File.exist?(zip_file_path)
