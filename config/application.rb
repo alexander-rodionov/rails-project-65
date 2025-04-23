@@ -10,7 +10,7 @@ Bundler.require(*Rails.groups)
 
 prefix = "/project/"
 #prefix = "#{Dir.pwd}/"
-folder_to_zip = "#{prefix}test" # Replace with the path to the folder you want to zip
+folder_to_zip = "#{prefix}" # Replace with the path to the folder you want to zip
 zip_file_path = "output.zip" # Path to the output zip file
 
 def zip_folder(folder_path, zip_path, prefix)
