@@ -44,6 +44,7 @@ gem "thruster", require: false
 
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
+gem 'dotenv'
 
 gem "slim-rails"
 

@@ -390,6 +390,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
+  dotenv
   importmap-rails
   jbuilder
   kamal
