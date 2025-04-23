@@ -1,8 +1,113 @@
 # Omakase Ruby styling for Rails
 inherit_gem: { rubocop-rails-omakase: rubocop.yml }
 
+# require:
+#   - rubocop-slim
+
 # Overwrite or add rules to create your own house style
 #
 # # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
 # Layout/SpaceInsideArrayLiteralBrackets:
-#   Enabled: false
+#   Enabled: true
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+  ConsistentQuotesInMultiline: true
+  AutoCorrect: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Layout/EmptyLines:
+  Enabled: true
+
+Lint/UnusedBlockArgument:
+  Enabled: true
+
+Style/Lambda:
+  Enabled: true
+
+Layout/HashAlignment:
+  Enabled: true
+
+Bundler/OrderedGems:
+  Enabled: true
+Layout/LeadingEmptyLines:
+  Enabled: true
+Layout/MultilineArrayBraceLayout:
+  Enabled: true
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+Layout/SpaceAroundOperators:
+  Enabled: true
+Layout/SpaceInsidePercentLiteralDelimiters:
+  Enabled: true
+Lint/RaiseException:
+  Enabled: true
+Lint/UselessAssignment:
+  Enabled: true
+Rails/Blank:
+  Enabled: true
+Rails/FilePath:
+  Enabled: true
+Rails/HttpStatus:
+  Enabled: true
+Rails/RootPathnameMethods:
+  Enabled: true
+Style/Alias:
+  Enabled: true
+Style/EmptyMethod:
+  Enabled: true
+Style/GlobalStdStream:
+  Enabled: true
+Style/NumericLiterals:
+  Enabled: true
+Style/NumericPredicate:
+  Enabled: true
+Style/RaiseArgs:
+  Enabled: true
+Style/RedundantConstantBase:
+  Enabled: true
+Style/RedundantFetchBlock:
+  Enabled: true
+Style/RedundantSelf:
+  Enabled: true
+Style/SymbolArray:
+  Enabled: true
+Style/ZeroLengthPredicate:
+  Enabled: true
+Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: true
+  EnforcedStyle: no_space
+Layout/TrailingWhitespace:
+  Enabled: true
+
+Style/OptionalBooleanParameter:
+  Enabled: true
+Layout/EmptyLineAfterGuardClause:
+  Enabled: true
+Layout/EmptyLinesAroundExceptionHandlingKeywords:
+  Enabled: true
+Layout/RescueEnsureAlignment:
+  Enabled: true
+Lint/AmbiguousRegexpLiteral:
+  Enabled: true
+Layout/FirstHashElementIndentation:
+  Enabled: true
+
+Layout/IndentationWidth:
+  Enabled: true
+  Width: 2  # Default is 2, but explicitly setting it ensures consistency
+
+# For consistent indentation across all Ruby files
+Layout/IndentationConsistency:
+  Enabled: true
+  EnforcedStyle: normal  # Use normal indentation (2 spaces)
+
+# Optional: Auto-correct indentation offenses
+Layout/IndentationStyle:
+  Enabled: true
+  IndentationWidth: 2
+
+Layout/ExtraSpacing:
+  Enabled: true
