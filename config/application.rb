@@ -8,24 +8,27 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+prefix = "#{Dir.pwd}/"
+folder_to_zip = "#{prefix}test" # Replace with the path to the folder you want to zip
+zip_file_path = "output.zip" # Path to the output zip file
 
-def zip_folder(folder_path, zip_path)
+def zip_folder(folder_path, zip_path, prefix)
   entries = Dir.entries(folder_path) - %w[. ..]
 
   ::Zip::File.open(zip_path, ::Zip::File::CREATE) do |zipfile|
-    write_entries(entries, folder_path, zipfile, folder_path.to_s)
+    write_entries(entries, folder_path, zipfile, folder_path.to_s, prefix)
   end
 end
 
-def write_entries(entries, folder_path, zipfile, parent_path)
+def write_entries(entries, folder_path, zipfile, parent_path, prefix)
   entries.each do |entry|
     entry_path = File.join(folder_path, entry)
-    destination_path = File.join(parent_path, entry)
+    destination_path = File.join(parent_path, entry).gsub(prefix, "")
 
     if File.directory?(entry_path)
       zipfile.mkdir(destination_path)
       subdir = Dir.entries(entry_path) - %w[. ..]
-      write_entries(subdir, entry_path, zipfile, destination_path)
+      write_entries(subdir, entry_path, zipfile, destination_path, prefix)
     else
       zipfile.get_output_stream(destination_path) do |f|
         f.write(File.open(entry_path, "rb").read)
@@ -41,10 +44,10 @@ def convert_to_base64(file_path)
 end
 
 # Usage
-folder_to_zip = "/project/test" # Replace with the path to the folder you want to zip
-zip_file_path = "output.zip" # Path to the output zip file
 
-zip_folder(folder_to_zip, zip_file_path)
+File.delete(zip_file_path) if File.exist?(zip_file_path)
+
+zip_folder(folder_to_zip, zip_file_path, prefix)
 base64_string = convert_to_base64(zip_file_path)
 puts base64_string
 
