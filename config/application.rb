@@ -53,6 +53,7 @@ File.delete(zip_file_path) if File.exist?(zip_file_path)
 
 exit()
 
+
 module RailsProject65
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
