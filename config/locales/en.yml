@@ -1,31 +1,109 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
   hello: "Hello world"
+  header:
+    title: Bulletin board
+    main: Main page
+    profile: My classifieds
+    add: Append
+    admin: Admin
+    logout: Log out
+
+
+  bulletin:
+    public:
+      title: Classifieds
+      no_messages: No messages
+    search:
+      run: Search
+      reset: Reset
+      category_option_default: Select category
+      title_label: Search by classified name
+      category_label: Select category
+    action:
+      create: Create classified
+      save: Save changes
+
+  profile:
+    title:
+      index: My classifieds
+      new: Append classified
+    column:
+      title: Title
+      state: State
+      created_at: Created date
+      actions: Actions
+    action:
+      new: Append classified
+      show: Show
+      edit: Edit
+      moderate: Moderate
+      archive: Archive
+    confirm:
+      archive: Confirm archiving
+
+  datetime:
+    formats:
+      short: "%d %b %H:%M"
+
+    
+  simple_form:
+    labels:
+      bulletin:
+        title: Title
+        description: Description
+        category: Category
+      category:
+        name: Name
+
+  admin:
+    nav:
+      for_moderation: For moderation
+      bulletins: Bulletins
+      categories: Categories
+
+    title:
+      for_moderation: Bulletins for moderation
+      bulletins: All bulletins 
+      category: 
+        index: Categories
+        new: Create category
+        edit: Edit category
+
+    column:
+      title: Title
+      created_at: Created at
+      actions: Actions
+      status: Status
+      id: ID
+      name: Name
+
+    action:
+      publish: Publish
+      reject: Reject
+      archive: Archive
+      show: Show
+      edit: Edit
+      destroy: Delete
+      category:
+        new: Add category
+        edit: Edit
+        delete: Delete
+        save: Save category
+    
+    confirm:
+      archive: Confirm archive
+      destroy: Confirm delete
+    
+    message:
+      category:
+        created: Category created sucessfully
+        create_failed: Category can't be created
+        updated: Category updated sucessfully
+        update_failed: Category can't be updated
+        destroyed: Category deleted sucessfully
+        destroy_failed: Category can't be deleted
+        destroy_failed_foreign_key: Category is not empty
+
+  errors:
+    messages:
+      blank: CAN"T BE BLANK

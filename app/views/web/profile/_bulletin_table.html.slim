@@ -1,0 +1,9 @@
+table.table.table-borderless
+  thead
+    tr
+      th = t('profile.column.title')
+      th = t('profile.column.state')
+      th = t('profile.column.created_at')
+      th = t('profile.column.actions')
+  tbody
+    = yield

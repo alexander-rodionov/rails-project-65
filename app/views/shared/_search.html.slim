@@ -1,0 +1,14 @@
+= search_form_for @q do |f|
+  .p-3.bg-light
+    .row.my-2
+      .col-6
+        .field
+          = f.text_field :title, class: 'form-control'
+          small.form-text.text-muted.m-0 = t('bulletin.search.title_label')
+      .col-4
+        .field
+          = f.select :category, options_for_select(categories_name(@categories)), { include_blank: t('bulletin.search.category_option_default') }, class: 'form-control select'
+          small.form-text.text-muted.m-0 = t('bulletin.search.category_label')
+      .col-2
+        = f.submit t('bulletin.search.run'), class: 'btn btn-primary me-2'
+        = link_to t('bulletin.search.reset'), url_for, class: 'btn btn-outline-primary'

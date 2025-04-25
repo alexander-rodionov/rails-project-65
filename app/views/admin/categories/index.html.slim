@@ -1,0 +1,6 @@
+- content_for :section_title, t('admin.title.category.index')
+= render 'admin/shared/nav_panel' do
+  = link_to t('admin.title.category.new'), new_admin_category_path
+  = render 'category_table' do
+    - @categories.each do |item|
+      = render 'category_row', item:

@@ -3,22 +3,36 @@
 Rails.application.routes.draw do
   # OmniAuth
 
-  get 'auth/:provider/callback', to: 'sessions#create'
-  get '/login', to: 'sessions#new'
+  scope :auth do
+    get :login, to: 'sessions#new'
+    get :logout, to: 'sessions#destroy'
 
-  post 'auth/:provider', to: 'auth#request', as: :auth_request
-  get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
+    # scope '/:provider' do
+      # post '/', to: 'auth#request', as: :auth_request
+      # get '/callback', to: 'sessions#create'
+      # get '/callback', to: 'auth#callback', as: :callback_auth
+    # end
+  end
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root to: 'web/bulletin#index'
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  namespace :admin do
+    root to: 'bulletin#for_moderation'
+    resources :bulletins, controller: 'bulletin', only: %i[index show] do
+      patch :publish
+      patch :reject
+      collection do
+        get :for_moderation
+      end
+    end
+    resources :categories
+  end
+
+  resource :profile, controller: 'web/profile', only: %i[show]
+  resources :bulletins, controller: 'web/bulletin', only: %i[index show new create edit update] do
+    patch :to_moderate
+    patch :archive
+  end
+
   get 'up' => 'rails/health#show', as: :rails_health_check
-
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-
-  # Defines the root path route ("/")
-  # root "posts#index"
 end

@@ -1,0 +1,7 @@
+tr
+  td = item.title
+  td = l(item.created_at, format: :short)
+  td
+    = link_to t('admin.action.publish'), admin_bulletin_publish_path(item), class: "me-2", data: { turbo_method: :patch }
+    = link_to t('admin.action.reject'), admin_bulletin_reject_path(item), class: "me-2", data: { turbo_method: :patch }
+    = link_to t('admin.action.archive'), bulletin_archive_path(item), class: "me-2 text-danger", data: { turbo_method: :patch, turbo_confirm: t('admin.confirm.archive') }

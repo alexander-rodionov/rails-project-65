@@ -1,0 +1,17 @@
+.container
+  .row
+    .col-md-3
+      ul.nav.flex-column.nav-pills
+        li.nav-item
+          = link_to t('admin.nav.for_moderation'), admin_root_path, 
+            class:"nav-link link-dark #{page_selector_css('bulletin#for_moderation', 'active')}"
+        li.nav-item
+          = link_to t('admin.nav.bulletins'), admin_bulletins_path, 
+            class:"nav-link link-dark #{page_selector_css('bulletin#index', 'active')}"
+        li.nav-item
+          = link_to t('admin.nav.categories'), admin_categories_path, 
+            class:"nav-link link-dark #{controller_selector_css('categories', 'active')}"
+    .col-md-9
+      h1.h2.mb-4
+        = yield :section_title
+      = yield

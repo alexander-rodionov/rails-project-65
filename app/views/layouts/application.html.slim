@@ -18,4 +18,7 @@ html
     = stylesheet_link_tag :app, "data-turbo-track": "reload"
     = javascript_importmap_tags
   body
-    = yield
+    .d-flex.flex-column.h-100
+      == render 'shared/header'
+      == render 'shared/flash_messages'
+      = yield

@@ -1,0 +1,7 @@
+= simple_form_for [:admin, @category] do |f|
+  = f.input :name,
+            error: true,
+            hint: false,
+            wrapper_html: { class: 'mb-3' },
+            input_html: { class: 'form-control' }
+  = f.submit t('admin.action.category.save'), class: 'btn btn-primary'

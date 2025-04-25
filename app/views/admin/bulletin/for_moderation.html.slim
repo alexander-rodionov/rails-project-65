@@ -1,0 +1,5 @@
+- content_for :section_title, t('admin.title.for_moderation')
+= render 'admin/shared/nav_panel'
+  = render 'bulletin_table_for_moderation' do
+    - @bulletins.each do |item|
+      = render 'bulletin_row_for_moderation', item:

@@ -1,0 +1,9 @@
+table.table.table-borderless
+  thead
+    tr
+      th = t('admin.column.title')
+      th = t('admin.column.created_at')
+      th = t('admin.column.status')
+      th = t('admin.column.actions')
+  tbody
+    = yield

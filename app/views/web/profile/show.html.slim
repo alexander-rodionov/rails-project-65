@@ -1,0 +1,8 @@
+- content_for :frame_title, t('profile.title.index')
+= render 'web/shared/fancy_frame' do
+  = link_to t('profile.action.new'), new_bulletin_path
+  == render 'shared/search'
+  .row.mt-2
+    == render 'bulletin_table' do
+      - @bulletins.each do |item|
+        == render 'bulletin_row', item:
