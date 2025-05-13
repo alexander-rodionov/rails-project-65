@@ -3,10 +3,13 @@
 class Web::BulletinController < Web::ApplicationController
   before_action :set_bulletin, only: %i[show edit to_moderate archive]
   before_action :load_categories, only: %i[new index edit]
-  
+  before_action :set_q_params, only: :index
+  before_action :set_page_params, only: :index
+
   def index
-    @q = Bulletin.ransack(params[:q])
-    @bulletins = @q.result
+    @q = Bulletin.ransack(@q_params)
+    @bulletins = @q.result.page(@page).per(10)
+    @total_pages = @bulletins.total_pages
   end
 
   def show; end

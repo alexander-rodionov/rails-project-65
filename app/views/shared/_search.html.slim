@@ -3,11 +3,20 @@
     .row.my-2
       .col-6
         .field
-          = f.text_field :title, class: 'form-control'
+          = f.search_field :title_cont, class: 'form-control', value: @q_params&.fetch(:title_cont,nil)
           small.form-text.text-muted.m-0 = t('bulletin.search.title_label')
       .col-4
         .field
-          = f.select :category, options_for_select(categories_name(@categories)), { include_blank: t('bulletin.search.category_option_default') }, class: 'form-control select'
+          /= f.input :category_eq,  as: :select, collection: categories_name(@categories), class: 'form-control', placeholder: 'Search categories...'
+          /= f.select :category_eq, options_from_collection_for_select(@categories, "id", "name",  @search.category_id_eq)
+
+          /= f.search_field :category_eq,  as: :select, class: 'form-control'
+          /= f.select :category_id_eq, as: :select, options_for_select(categories_name(@categories), @q_params&.fetch(:category_eq,nil)) { include_blank: t('bulletin.search.category_option_default') }, class: 'form-control select'
+          = f.select :category_id_eq, options_for_select(categories_name(@categories), selected = @q_params&.fetch(:category_id_eq,nil)), { include_blank: t('bulletin.search.category_option_default') }, class: 'form-control'
+          /= f.select :category_id_eq, 
+                     options_for_select(categories_name(@categories), @q_params&.dig(:q, :category_id_eq) || @q_params&.fetch(:category_id_eq, nil)), 
+                     { include_blank: t('bulletin.search.category_option_default') }, 
+                     { class: 'form-control select' }
           small.form-text.text-muted.m-0 = t('bulletin.search.category_label')
       .col-2
         = f.submit t('bulletin.search.run'), class: 'btn btn-primary me-2'

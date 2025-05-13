@@ -46,6 +46,8 @@ gem 'thruster', require: false
 
 gem 'aasm'
 gem 'dotenv'
+gem 'kaminari'
+gem 'html2slim'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 gem 'ransack'
@@ -58,6 +60,8 @@ group :development, :test do
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem 'brakeman', require: false
+
+  gem 'faker'
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem 'rubocop-rails-omakase', require: false

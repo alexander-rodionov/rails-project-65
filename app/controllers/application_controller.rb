@@ -20,4 +20,12 @@ class ApplicationController < ActionController::Base
   def set_category
     @category = Category.find(param_id)
   end
+
+  def set_page_params
+    @page = params[:page] || 0
+  end
+
+  def set_q_params
+    @q_params = params[:q]&.permit(%i[title_cont category_id_eq]).to_h
+  end
 end

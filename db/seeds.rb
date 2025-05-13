@@ -10,18 +10,45 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-[
-  { name: 'User1', email: 'some1@mail.com', admin: true },
-  { name: 'User2', email: 'some2@mail.com', admin: true }
-].each { |r| User.create!(r) }
+require 'faker'
+
+3.times do
+  User.create!(
+    name: Faker::Name.unique.name,
+    email: Faker::Internet.unique.email,
+    admin: [true, false].sample
+  )
+end
+
+5.times do
+  Category.create!(
+    name: Faker::Book.unique.genre
+  )
+end
+
+100.times do
+  Bulletin.create!(
+    title: Faker::Book.unique.title,
+    description: Faker::Lorem.paragraph,
+    category: Category.all.sample,
+    state: ['draft', 'published', 'archived'].sample,
+    user: User.all.sample
+  )
+end
+
+# [
+#   { name: 'User1', email: 'some1@mail.com', admin: true },
+#   { name: 'User2', email: 'some2@mail.com', admin: true }
+# ].each { |r| User.create!(r) }
+
+# [
+#   { name: 'Category 1' },
+#   { name: 'Category 2' },
+# ].each { |r| Category.create!(r) }
 
 
-[
-  { name: 'Category 1' },
-  { name: 'Category 2' },
-].each { |r| Category.create!(r) }
 
-[
-  { title: 'Message 1', description: "Message body 1", category: Category.first, state:'draft', user: User.first },
-  { title: 'Message 2', description: "Message body 2", category: Category.first, state:'draft', user: User.first },
-].each { |r| Bulletin.create!(r) }
+# [
+#   { title: 'Some Message 1', description: "Some body 1", category: Category.first, state: 'draft', user: User.first },
+#   { title: 'Another Message 2', description: "Another body 2", category: Category.second, state: 'draft', user: User.first },
+# ].each { |r| Bulletin.create!(r) }

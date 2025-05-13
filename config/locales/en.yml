@@ -107,3 +107,8 @@ en:
   errors:
     messages:
       blank: CAN"T BE BLANK
+
+  views:
+    pagination:
+      last: ">>"
+      first: "<<"
