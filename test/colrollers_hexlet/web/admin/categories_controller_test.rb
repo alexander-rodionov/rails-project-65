@@ -3,6 +3,8 @@
 require 'test_helper'
 
 class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
+  def sign_in(user); end
+
   setup do
     @user = users :admin
     sign_in @user

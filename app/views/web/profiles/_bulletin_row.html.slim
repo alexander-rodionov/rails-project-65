@@ -1,0 +1,13 @@
+tr
+  td = item.title
+  td = human_state_name(item.state)
+  td = human_date(item.created_at)
+  td
+    = link_to t('profile.action.show'), bulletin_path(item), class: "me-2"
+    = link_to t('profile.action.edit'), edit_bulletin_path(item), class: "me-2"
+    - if item.may_to_moderation?
+      = link_to t('profile.action.moderate'), bulletin_to_moderate_path(item), class: "me-2", data: { turbo_method: :patch }
+    - if item.may_archive?
+      = link_to t('profile.action.archive'), archive_bulletin_path(item), class: "me-2", data: { turbo_method: :patch, turbo_confirm: t('profile.confirm.archive') }
+    
+

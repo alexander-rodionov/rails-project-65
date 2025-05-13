@@ -11,6 +11,8 @@ class Bulletin < ApplicationRecord
   validates :category, presence: true
   validates :user, presence: true
 
+  has_one_attached :image
+
   aasm column: 'state' do
     state :draft, initial: true
     state :under_moderation

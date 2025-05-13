@@ -1,0 +1,7 @@
+= simple_form_for @bulletin do |f|
+  = f.input :title
+  = f.input :description
+  = f.input :category_id, collection: @categories
+  = image_tag(@bulletin.image, class:"img-thumbnail mb-2") if @bulletin.image.attached?
+  = f.input :image, as: :file
+  = f.submit action_title

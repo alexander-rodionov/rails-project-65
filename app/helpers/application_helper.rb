@@ -9,4 +9,12 @@ module ApplicationHelper
     else 'primary'
     end
   end
+
+  def human_state_name(state)
+    t("bulletin.state_names.#{state}")
+  end
+
+  def human_date(from_time)
+    distance_of_time_in_words(from_time, Time.now)
+  end
 end

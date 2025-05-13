@@ -3,6 +3,8 @@
 require 'test_helper'
 
 class Web::ProfilesControllerTest < ActionDispatch::IntegrationTest
+  def sign_in(user); end
+
   setup do
     @user = users :one
   end

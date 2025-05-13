@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Admin::CategoriesController < Admin::ApplicationController
+class Web::Admin::CategoriesController < Web::Admin::ApplicationController
   before_action :set_category, only: %i[destroy edit update]
 
   def index

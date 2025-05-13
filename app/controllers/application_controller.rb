@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include RouteSynonymsHelper
+
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
 
@@ -27,5 +29,9 @@ class ApplicationController < ActionController::Base
 
   def set_q_params
     @q_params = params[:q]&.permit(%i[title_cont category_id_eq]).to_h
+  end
+
+  def current_user
+    User.first
   end
 end

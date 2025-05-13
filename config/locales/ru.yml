@@ -1,0 +1,194 @@
+ru:
+  hello: "Привет, мир"
+  header:
+    title: Доска объявлений
+    main: Главная страница
+    profile: Мои объявления
+    add: Добавить
+    admin: Администратор
+    logout: Выйти
+
+  bulletin:
+    public:
+      title: Объявления
+      no_messages: Нет сообщений
+    search:
+      run: Поиск
+      reset: Сбросить
+      category_option_default: Выберите категорию
+      title_label: Поиск по названию объявления
+      category_label: Выберите категорию
+    action:
+      create: Создать объявление
+      save: Сохранить изменения
+    state_names:
+      archived: Архивировано
+      published: Опубликовано
+      draft: Черновик
+      under_moderation: На модерации
+
+  profile:
+    title:
+      index: Мои объявления
+      new: Добавить объявление
+    column:
+      title: Название
+      state: Состояние
+      created_at: Дата создания
+      actions: Действия
+    action:
+      new: Добавить объявление
+      show: Показать
+      edit: Редактировать
+      moderate: Модерировать
+      archive: Архивировать
+    confirm:
+      archive: Подтвердить архивацию
+
+  datetime:
+    formats:
+      short: "%d %b %H:%M"
+
+  simple_form:
+    labels:
+      bulletin:
+        title: Название
+        description: Описание
+        category: Категория
+      category:
+        name: Название
+
+  admin:
+    nav:
+      for_moderation: На модерацию
+      bulletins: Объявления
+      categories: Категории
+
+    title:
+      for_moderation: Объявления на модерацию
+      bulletins: Все объявления
+      category:
+        index: Категории
+        new: Создать категорию
+        edit: Редактировать категорию
+
+    column:
+      title: Название
+      created_at: Создано
+      actions: Действия
+      status: Статус
+      id: ID
+      name: Название
+
+    action:
+      publish: Опубликовать
+      reject: Отклонить
+      archive: Архивировать
+      show: Показать
+      edit: Редактировать
+      destroy: Удалить
+      category:
+        new: Добавить категорию
+        edit: Редактировать
+        delete: Удалить
+        save: Сохранить категорию
+
+    confirm:
+      archive: Подтвердить архивацию
+      destroy: Подтвердить удаление
+
+    message:
+      category:
+        created: Категория успешно создана
+        create_failed: Не удалось создать категорию
+        updated: Категория успешно обновлена
+        update_failed: Не удалось обновить категорию
+        destroyed: Категория успешно удалена
+        destroy_failed: Не удалось удалить категорию
+        destroy_failed_foreign_key: Категория не пуста
+      bulletin:
+        created: Объявление успешно создано
+        create_failed: Не удалось создать объявление
+        updated: Объявление успешно обновлено
+        update_failed: Не удалось обновить объявление
+        to_moderate: Успешно отправлено на модерацию
+        to_moderate_fail: Ошибка отправки на модерацию
+        archive: Успешно архивировано
+        archive_fail: Ошибка архивации
+        rejected: Успешно отклонено
+        reject_failed: Ошибка отклонения
+        published: Успешно опубликовано
+        publish_failed: Ошибка публикации
+
+  errors:
+    messages:
+      blank: НЕ МОЖЕТ БЫТЬ ПУСТЫМ
+
+  views:
+    pagination:
+      last: ">>"
+      first: "<<"
+      next: ">"
+      previous: "<"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "полминуты"
+      less_than_x_seconds:
+        one:   "меньше секунды"
+        other: "меньше %{count} секунд"
+      x_seconds:
+        one:   "1 секунда"
+        other: "%{count} секунд"
+      less_than_x_minutes:
+        one:   "меньше минуты"
+        other: "меньше %{count} минут"
+      x_minutes:
+        one:   "1 минута"
+        other: "%{count} минут"
+      about_x_hours:
+        one:   "около часа"
+        other: "около %{count} часов"
+      x_days:
+        one:   "1 день"
+        other: "%{count} дней"
+      about_x_months:
+        one:   "около месяца"
+        other: "около %{count} месяцев"
+      x_months:
+        one:   "1 месяц"
+        other: "%{count} месяцев"
+      about_x_years:
+        one:   "около года"
+        other: "около %{count} лет"
+      over_x_years:
+        one:   "больше года"
+        other: "больше %{count} лет"
+      almost_x_years:
+        one:   "почти год"
+        other: "почти %{count} лет"
+      x_years:
+        one:   "1 год"
+        other: "%{count} лет"
+      about_x_hours_ago: "около %{count} часов назад"
+      x_days_ago: "%{count} дней назад"
+      about_x_months_ago: "около %{count} месяцев назад"
+      x_months_ago: "%{count} месяцев назад"
+      about_x_years_ago: "около %{count} лет назад"
+      over_x_years_ago: "больше %{count} лет назад"
+      almost_x_years_ago: "почти %{count} лет назад"
+      x_years_ago: "%{count} лет назад"
+      less_than_x_minutes_ago:
+        one:   "меньше минуты назад"
+        other: "меньше %{count} минут назад"
+      x_minutes_ago:
+        one:   "1 минуту назад"
+        other: "%{count} минут назад"
+      about_x_hours_ago: "около %{count} часов назад"
+      x_days_ago: "%{count} дней назад"
+      about_x_months_ago: "около %{count} месяцев назад"
+      x_months_ago: "%{count} месяцев назад"
+      about_x_years_ago: "около %{count} лет назад"
+      over_x_years_ago: "больше %{count} лет назад"
+      almost_x_years_ago: "почти %{count} лет назад"
+      x_years_ago: "%{count} лет назад"

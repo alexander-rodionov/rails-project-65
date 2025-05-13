@@ -2,7 +2,7 @@
 = render 'web/shared/fancy_frame' do
   .row
     .col-8
-      = image_tag('https://habrastorage.org/r/w1560/getpro/habr/upload_files/91a/18d/34f/91a18d34f021e9ecd16088bb2f202ef2.png', class:"img-thumbnail mb-2")
+      = image_tag(@bulletin.image, class:"img-thumbnail mb-2") if @bulletin.image.attached?
       p = @bulletin.description
     .col-4
       .card

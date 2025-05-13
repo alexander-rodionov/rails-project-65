@@ -22,6 +22,11 @@ en:
     action:
       create: Create classified
       save: Save changes
+    state_names:
+      archived: Archived
+      published: Published
+      draft: Draft
+      under_moderation: Under moderation
 
   profile:
     title:
@@ -103,6 +108,20 @@ en:
         destroyed: Category deleted sucessfully
         destroy_failed: Category can't be deleted
         destroy_failed_foreign_key: Category is not empty
+      bulletin:
+        created: Bulletin created sucessfully
+        create_failed: Bulletin can't be created
+        updated: Bulletin updated sucessfully
+        update_failed: Bulletin can't be updated
+        to_moderate: Sucessfully sent for moderation
+        to_moderate_fail: Sending for moderation failed
+        archive: Sucessfully sent to archive
+        archive_fail: Failed to archive
+        rejected: Sucessfully rejected
+        reject_failed: Failed to reject
+        published: Sucessfully published
+        publish_failed: Failed to publish
+
 
   errors:
     messages:
@@ -114,4 +133,64 @@ en:
       first: "<<"
       next: ">"
       previous: "<"
-      
+  datetime:
+    distance_in_words:
+      half_a_minute: "half a minute"
+      less_than_x_seconds:
+        one:   "less than a second"
+        other: "less than %{count} seconds"
+      x_seconds:
+        one:   "1 second"
+        other: "%{count} seconds"
+      less_than_x_minutes:
+        one:   "less than a minute"
+        other: "less than %{count} minutes"
+      x_minutes:
+        one:   "1 minute"
+        other: "%{count} minutes"
+      about_x_hours:
+        one:   "about 1 hour"
+        other: "about %{count} hours"
+      x_days:
+        one:   "1 day"
+        other: "%{count} days"
+      about_x_months:
+        one:   "about 1 month"
+        other: "about %{count} months"
+      x_months:
+        one:   "1 month"
+        other: "%{count} months"
+      about_x_years:
+        one:   "about 1 year"
+        other: "about %{count} years"
+      over_x_years:
+        one:   "over 1 year"
+        other: "over %{count} years"
+      almost_x_years:
+        one:   "almost 1 year"
+        other: "almost %{count} years"
+      x_years:
+        one:   "1 year"
+        other: "%{count} years"
+      about_x_hours_ago: "about %{count} hours ago"
+      x_days_ago: "%{count} days ago"
+      about_x_months_ago: "about %{count} months ago"
+      x_months_ago: "%{count} months ago"
+      about_x_years_ago: "about %{count} years ago"
+      over_x_years_ago: "over %{count} years ago"
+      almost_x_years_ago: "almost %{count} years ago"
+      x_years_ago: "%{count} years ago"
+      less_than_x_minutes_ago:
+        one:   "less than a minute ago"
+        other: "less than %{count} minutes ago"
+      x_minutes_ago:
+        one:   "1 minute ago"
+        other: "%{count} minutes ago"
+      about_x_hours_ago: "about %{count} hours ago"
+      x_days_ago: "%{count} days ago"
+      about_x_months_ago: "about %{count} months ago"
+      x_months_ago: "%{count} months ago"
+      about_x_years_ago: "about %{count} years ago"
+      over_x_years_ago: "over %{count} years ago"
+      almost_x_years_ago: "almost %{count} years ago"
+      x_years_ago: "%{count} years ago"

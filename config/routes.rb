@@ -14,24 +14,38 @@ Rails.application.routes.draw do
     # end
   end
 
-  root to: 'web/bulletin#index'
-
-  namespace :admin do
-    root to: 'bulletin#for_moderation'
-    resources :bulletins, controller: 'bulletin', only: %i[index show] do
-      patch :publish
-      patch :reject
-      collection do
-        get :for_moderation
+  scope module: 'web' do
+    root to: 'bulletins#index'
+    namespace :admin do
+      root to: 'bulletins#for_moderation'
+      resources :bulletins, only: %i[index show] do
+        patch :publish
+        patch :reject
+        patch :archive
+        collection do
+          get :for_moderation
+        end
       end
+      resources :categories
     end
-    resources :categories
+    resource :profile, only: %i[show]
+    resources :bulletins, only: %i[index show new create edit update] do
+      patch :to_moderate
+      patch :archive
+    end
   end
 
-  resource :profile, controller: 'web/profile', only: %i[show]
-  resources :bulletins, controller: 'web/bulletin', only: %i[index show new create edit update] do
-    patch :to_moderate
-    patch :archive
+  # Опять большое неудобство, связанное с тем, что к заданию вместо требований сделан квест в стиле физмат школы.
+  # Поскольку уже все было написано, а тесты завалились на названиях переменных путей, которые зависят от того как сделаны роуты
+  # То надо сделать синонимы и дальше спокойно жить
+
+  scope module: 'web' do
+    patch 'bulletins/:id/archive', to: 'bulletins#archive', as: :archive_bulletin
+    scope module: 'admin' do
+      patch '/admin/bulletins/:bulletin_id/publish', to: 'bulletins#publish', as: :publish_admin_bulletin
+      patch '/admin/bulletins/:bulletin_id/archive', to: 'bulletins#archive', as: :archive_admin_bulletin
+      patch '/admin/bulletins/:bulletin_id/reject', to: 'bulletins#reject', as: :reject_admin_bulletin
+    end
   end
 
   get 'up' => 'rails/health#show', as: :rails_health_check

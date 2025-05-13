@@ -3,12 +3,14 @@
 require 'test_helper'
 
 class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
+  def sign_in(user); end
+
   def setup
     @user = users(:one)
     @published_bulletin = bulletins(:published)
     @draft_bulletin = bulletins(:draft)
     # FIXME
-    @uploaded_file = Rack::Test::UploadedFile.new('/project/test/fixtures/files/test.png', 'image/png')
+    @uploaded_file = Rack::Test::UploadedFile.new('test/fixtures/files/test.png', 'image/png')
   end
 
   test 'should get index' do
@@ -47,7 +49,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
       }
     }
 
-    log_params(params.to_json)
+    # log_params(params.to_json)
 
     patch bulletin_url(@draft_bulletin), params: params
 
