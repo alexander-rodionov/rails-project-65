@@ -112,3 +112,6 @@ en:
     pagination:
       last: ">>"
       first: "<<"
+      next: ">"
+      previous: "<"
+      

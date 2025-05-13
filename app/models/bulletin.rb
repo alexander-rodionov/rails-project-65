@@ -11,7 +11,7 @@ class Bulletin < ApplicationRecord
   validates :category, presence: true
   validates :user, presence: true
 
-  aasm :column => 'state' do
+  aasm column: 'state' do
     state :draft, initial: true
     state :under_moderation
     state :published

@@ -1,5 +1,6 @@
 - content_for :frame_title, t('bulletin.public.title')
 = render 'web/shared/fancy_frame' do
+  - content_for :search_url, root_path
   ==render 'shared/search'
   .row.mt-2
     - if @bulletins.empty?
@@ -7,5 +8,4 @@
     - @bulletins.each do |bulletin|
       .col-3.pt-2
         == render 'card', bulletin:
-    nav
-      == render 'paginator'
+    = paginate @bulletins, params: { q: @q_params }

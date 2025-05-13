@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   def param_id
     params[:id]
   end
-  
+
   def set_category
     @category = Category.find(param_id)
   end

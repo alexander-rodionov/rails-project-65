@@ -8,7 +8,7 @@ class Web::BulletinController < Web::ApplicationController
 
   def index
     @q = Bulletin.ransack(@q_params)
-    @bulletins = @q.result.page(@page).per(10)
+    @bulletins = @q.result.page(@page).per(8)
     @total_pages = @bulletins.total_pages
   end
 
@@ -47,5 +47,4 @@ class Web::BulletinController < Web::ApplicationController
   def create
     redirect_to profile_path
   end
-
 end

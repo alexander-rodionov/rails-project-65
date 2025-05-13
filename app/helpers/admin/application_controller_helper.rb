@@ -1,5 +1,6 @@
-module Admin::ApplicationControllerHelper
+# frozen_string_literal: true
 
+module Admin::ApplicationControllerHelper
   def page_signature
     "#{controller_name}##{action_name}"
   end
@@ -11,6 +12,4 @@ module Admin::ApplicationControllerHelper
   def controller_selector_css(controller_selector, css_class)
     css_class if controller_selector == controller_name
   end
-
-
 end

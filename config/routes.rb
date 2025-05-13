@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     get :logout, to: 'sessions#destroy'
 
     # scope '/:provider' do
-      # post '/', to: 'auth#request', as: :auth_request
-      # get '/callback', to: 'sessions#create'
-      # get '/callback', to: 'auth#callback', as: :callback_auth
+    # post '/', to: 'auth#request', as: :auth_request
+    # get '/callback', to: 'sessions#create'
+    # get '/callback', to: 'auth#callback', as: :callback_auth
     # end
   end
 

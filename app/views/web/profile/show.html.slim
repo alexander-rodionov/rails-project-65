@@ -6,3 +6,4 @@
     == render 'bulletin_table' do
       - @bulletins.each do |item|
         == render 'bulletin_row', item:
+  = paginate @bulletins, params: { q: @q_params }

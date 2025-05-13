@@ -46,8 +46,8 @@ gem 'thruster', require: false
 
 gem 'aasm'
 gem 'dotenv'
-gem 'kaminari'
 gem 'html2slim'
+gem 'kaminari'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 gem 'ransack'

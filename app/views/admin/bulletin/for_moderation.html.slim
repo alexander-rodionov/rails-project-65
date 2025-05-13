@@ -3,3 +3,4 @@
   = render 'bulletin_table_for_moderation' do
     - @bulletins.each do |item|
       = render 'bulletin_row_for_moderation', item:
+  = paginate @bulletins

@@ -46,8 +46,6 @@ end
 #   { name: 'Category 2' },
 # ].each { |r| Category.create!(r) }
 
-
-
 # [
 #   { title: 'Some Message 1', description: "Some body 1", category: Category.first, state: 'draft', user: User.first },
 #   { title: 'Another Message 2', description: "Another body 2", category: Category.second, state: 'draft', user: User.first },

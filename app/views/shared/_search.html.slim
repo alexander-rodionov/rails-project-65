@@ -1,4 +1,4 @@
-= search_form_for @q do |f|
+= search_form_for @q, url: yield(:search_url) do |f|
   .p-3.bg-light
     .row.my-2
       .col-6

@@ -25,9 +25,9 @@ module RailsProject65
     end
 
     OmniAuth.config.test_mode = true
-    
+
     ENV['RANSACK_FORM_BUILDER'] = '::SimpleForm::FormBuilder'
-    
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
