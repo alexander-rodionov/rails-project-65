@@ -24,7 +24,6 @@ module RailsProject65
       g.template_engine :slim
     end
     config.i18n.default_locale = :ru
-    OmniAuth.config.test_mode = true
 
     ENV['RANSACK_FORM_BUILDER'] = '::SimpleForm::FormBuilder'
 

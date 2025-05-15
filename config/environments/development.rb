@@ -3,6 +3,9 @@
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
+
+  OmniAuth.config.test_mode = true
+
   config.assets.digest = true
 
   # Settings specified here will take precedence over those in config/application.rb.

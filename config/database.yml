@@ -43,45 +43,22 @@ test:
 production:
   primary:
 #    <<: *default
-    adapter: postgresql
-    host: <%= ENV['PG_HOST'] %>
-    port: <%= ENV['PG_PORT'] %>
-    database: <%= ENV['PG_NAME'] %>
-    username: <%= ENV['PG_USER'] %>
-    password: <%= ENV['PG_DATA'] %>
-    encoding: unicode
+    url: <%= "postgresql://#{ENV['PG_USER']}:#{ENV['PG_DATA']}@#{ENV['PG_HOST']}:#{ENV['PG_PORT']}/#{ENV['PG_NAME']}" %>
+    # adapter: postgresql
+    # host: <%= ENV['PG_HOST'] %>
+    # port: <%= ENV['PG_PORT'] %>
+    # database: <%= ENV['PG_NAME'] %>
+    # username: <%= ENV['PG_USER'] %>
+    # password: <%= ENV['PG_DATA'] %>
+    # encoding: unicode
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
     timeout: 5000
 
   cache:
-    adapter: postgresql
-    host: <%= ENV['PG_HOST'] %>
-    port: <%= ENV['PG_PORT'] %>
-    database: <%= ENV['PG_NAME'] %>
-    username: <%= ENV['PG_USER'] %>
-    password: <%= ENV['PG_DATA'] %>
-    encoding: unicode
-    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    timeout: 5000
+    <<: *primary
 
   queue:
-    adapter: postgresql
-    host: <%= ENV['PG_HOST'] %>
-    port: <%= ENV['PG_PORT'] %>
-    database: <%= ENV['PG_NAME'] %>
-    username: <%= ENV['PG_USER'] %>
-    password: <%= ENV['PG_DATA'] %>
-    encoding: unicode
-    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    timeout: 5000
+    <<: *primary
 
   cable:
-    adapter: postgresql
-    host: <%= ENV['PG_HOST'] %>
-    port: <%= ENV['PG_PORT'] %>
-    database: <%= ENV['PG_NAME'] %>
-    username: <%= ENV['PG_USER'] %>
-    password: <%= ENV['PG_DATA'] %>
-    encoding: unicode
-    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    timeout: 5000
+    <<: *primary
