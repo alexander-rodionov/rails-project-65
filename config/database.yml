@@ -4,20 +4,22 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem "sqlite3"
 #
-default: &default
+default: &default_sqlite
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
+default_pg: &default_pg
+  url: <%= "postgresql://#{ENV['PG_USER']}:#{ENV['PG_DATA']}@#{ENV['PG_HOST']}:#{ENV['PG_PORT']}/#{ENV['PG_NAME']}" %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
 development:
-  <<: *default
+  <<: *default_sqlite
   database: storage/development.sqlite3
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
-  <<: *default
+  <<: *default_sqlite
   database: storage/test.sqlite3
 
 
@@ -40,25 +42,16 @@ test:
 #     database: storage/production_cable.sqlite3
 #     migrations_paths: db/cable_migrate
 
+
 production:
   primary:
-#    <<: *default
-    url: <%= "postgresql://#{ENV['PG_USER']}:#{ENV['PG_DATA']}@#{ENV['PG_HOST']}:#{ENV['PG_PORT']}/#{ENV['PG_NAME']}" %>
-    # adapter: postgresql
-    # host: <%= ENV['PG_HOST'] %>
-    # port: <%= ENV['PG_PORT'] %>
-    # database: <%= ENV['PG_NAME'] %>
-    # username: <%= ENV['PG_USER'] %>
-    # password: <%= ENV['PG_DATA'] %>
-    # encoding: unicode
-    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    timeout: 5000
+    <<: *default_pg
 
   cache:
-    <<: *primary
+    <<: *default_pg
 
   queue:
-    <<: *primary
+    <<: *default_pg
 
   cable:
-    <<: *primary
+    <<: *default_pg
