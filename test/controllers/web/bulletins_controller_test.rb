@@ -47,7 +47,6 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
       }
     }
 
-    # log_params(params.to_json)
     patch bulletin_url(@draft_bulletin), params: params
 
     assert_response :redirect
@@ -60,7 +59,6 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   test 'should create' do
     sign_in @user
 
-    # FIXME: we do not use assert_difference
     assert_difference 'Bulletin.count', 1 do
       params = {
         bulletin: {
