@@ -1,4 +1,4 @@
-#export SECRET_KEY_BASE=adfasjflkasjflkdsflkjsd
+export SECRET_KEY_BASE=adfasjflkasjflkdsflkjsd
 #echo Running db:migrate
 #./bin/rails db:migrate
 #echo Running db:seed

@@ -50,7 +50,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     }
 
     # log_params(params.to_json)
-
+    debugger
     patch bulletin_url(@draft_bulletin), params: params
 
     assert_response :redirect
