@@ -83,6 +83,10 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 #RUN chown rails:rails /rails/launch.sh
 #RUN chmod 766 /rails/launch.sh
 
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails db:migrate
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails db:seed
+
+
 # Start server via Thruster by default, this can be overwritten at runtime
 EXPOSE 80
 #CMD ["./bin/thrust", "./bin/rails", "server"]
