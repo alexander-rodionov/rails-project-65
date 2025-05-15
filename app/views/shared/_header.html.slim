@@ -18,6 +18,8 @@
       li.nav-item.me-2
         - if user_present?
           = link_to t('header.logout'), logout_path, class: "nav-link text-dark"
+          /= button_to "Sign Out", sign_out_path, method: :delete
         - else 
           = link_to t('header.login'), login_path, class: "nav-link text-dark"
+          /= link_to "Sign in with GitHub", "/auth/github" 
 

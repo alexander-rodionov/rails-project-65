@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   # OmniAuth
-
+  
   # get '/auth/github/callback', to: 'sessions#create'
   # get '/auth/failure', to: 'sessions#failure'
   # post '/logout', to: 'sessions#destroy', as: :logout
@@ -12,8 +12,8 @@ Rails.application.routes.draw do
     scope '/:provider' do
       get :callback, to: 'sessions#create'
     end
-    get :logout, to: 'sessions#destroy'
-    get :login, to: 'sessions#new'
+    get :logout, to: 'sessions#destroy', as: :logout
+    get :login, to: 'sessions#new', as: :login
     get :failure, to: 'sessions#failure'
   end
 
