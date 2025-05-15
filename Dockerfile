@@ -80,6 +80,12 @@ COPY --from=build /rails /rails
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
+ENV PG_HOST=amvera-rodionovalex-cnpg-rails65-rw
+ENV PORT=5432
+ENV NAME=rails65
+ENV USER=rails65-db-user
+ENV PASSWORD=1eF2wf25LQHDJbI6
+
 #RUN chown rails:rails /rails/launch.sh
 #RUN chmod 766 /rails/launch.sh
 RUN echo PGHOST:$PG_HOST
