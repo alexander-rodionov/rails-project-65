@@ -1,4 +1,6 @@
 # frozen_string_literal: true
 
-module Admin::BulletinHelper
+module Admin
+  module BulletinHelper
+  end
 end

@@ -1,4 +1,8 @@
 # frozen_string_literal: true
 
-class Web::Admin::ApplicationController < ApplicationController
+module Web
+  module Admin
+    class ApplicationController < ApplicationController
+    end
+  end
 end

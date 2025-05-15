@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
-module Web::ProfileHelper
-  include Web::WebHelper
+module Web
+  module ProfileHelper
+    include Web::WebHelper
+  end
 end

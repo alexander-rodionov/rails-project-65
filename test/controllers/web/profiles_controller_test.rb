@@ -2,15 +2,17 @@
 
 require 'test_helper'
 
-class Web::ProfilesControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @user = users :one
-  end
+module Web
+  class ProfilesControllerTest < ActionDispatch::IntegrationTest
+    setup do
+      @user = users :one
+    end
 
-  test 'should get show' do
-    sign_in @user
+    test 'should get show' do
+      sign_in @user
 
-    get profile_path
-    assert_response :success
+      get profile_path
+      assert_response :success
+    end
   end
 end

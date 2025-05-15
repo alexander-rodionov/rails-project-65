@@ -1,4 +1,6 @@
 # frozen_string_literal: true
 
-class Web::AuthController < Web::ApplicationController
+module Web
+  class AuthController < Web::ApplicationController
+  end
 end

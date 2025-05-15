@@ -3,7 +3,7 @@
   .row
     .col-8
       - if @bulletin.image.attached?
-        = image_tag(@bulletin.image, class:'img-thumbnail mb-2') 
+        = image_tag(@bulletin.image, class:'img-thumbnail mb-2')
       p = @bulletin.description
     .col-4
       .card

@@ -8,8 +8,6 @@ class Bulletin < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :category, presence: true
-  validates :user, presence: true
 
   has_one_attached :image
 
