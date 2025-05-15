@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::Base
   include RouteSynonymsHelper
-  include Pundit
+  include Pundit::Authorization
 
   rescue_from Pundit::NotAuthorizedError, with: :handle_pundit_exception
 
