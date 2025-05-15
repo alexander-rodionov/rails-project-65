@@ -87,6 +87,7 @@ ENV PG_USER=postgres
 ENV PG_DATA=6j77r865ZwY5xC1P
 ENV DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 
+
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails db:reset db:seed
 
 # Start server via Thruster by default, this can be overwritten at runtime
