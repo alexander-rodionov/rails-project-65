@@ -4,5 +4,6 @@ meta:
     name: docker
 build:
   dockerfile: amvera.dockerfile
-
+run:
+  containerPort: "80"
 
