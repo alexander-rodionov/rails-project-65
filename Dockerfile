@@ -83,8 +83,8 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 ENV PG_HOST=amvera-rodionovalex-cnpg-rails65-rw
 ENV PG_PORT=5432
 ENV PG_NAME=rails65
-ENV PG_USER=rails65-db-user
-ENV PG_PASSWORD=1eF2wf25LQHDJbI6
+ENV PG_USER=postgres
+ENV PG_PASSWORD=6j77r865ZwY5xC1P
 
 #RUN chown rails:rails /rails/launch.sh
 #RUN chmod 766 /rails/launch.sh
