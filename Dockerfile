@@ -87,11 +87,7 @@ ENV PG_USER=postgres
 ENV PG_DATA=6j77r865ZwY5xC1P
 ENV DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 
-#RUN chown rails:rails /rails/launch.sh
-#RUN chmod 766 /rails/launch.sh
-RUN echo PGHOST:$PG_HOST
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails db:recreate
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails db:seed
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails db:reset db:seed
 
 # Start server via Thruster by default, this can be overwritten at runtime
 EXPOSE 80
