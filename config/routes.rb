@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   # post '/logout', to: 'sessions#destroy', as: :logout
   # get '/login', to: 'sessions#new', as: :login
 
-  post '/auth/github', as: :auth_request
+  #post '/auth/github', as: :auth_request
+  post '/auth/:provider', to: 'sessions#auth', as: :auth_request
 
   scope :auth do
     scope '/:provider' do
