@@ -39,8 +39,10 @@ test:
 #     <<: *default
 #     database: storage/production_cable.sqlite3
 #     migrations_paths: db/cable_migrate
+
+production:
   primary:
-    <<: *default
+#    <<: *default
     adapter: postgresql
     host: <%= ENV['PG_HOST'] %>
     port: <%= ENV['PG_PORT'] %>
@@ -49,6 +51,7 @@ test:
     password: <%= ENV['PG_PASSWORD'] %>
     encoding: unicode
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    timeout: 5000
 
   cache:
     <<: *primary
