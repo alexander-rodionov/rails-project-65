@@ -9,15 +9,15 @@ Rails.application.routes.draw do
   # get '/login', to: 'sessions#new', as: :login
 
   # post '/auth/github', as: :auth_request
-  post '/auth/:provider', to: 'sessions#auth', as: :auth_request
+  post "/auth/:provider", to: "sessions#auth", as: :auth_request
 
   scope :auth do
-    scope '/:provider' do
-      get :callback, to: 'sessions#create', as: :callback_auth
+    scope "/:provider" do
+      get :callback, to: "sessions#create", as: :callback_auth
     end
-    get :logout, to: 'sessions#destroy', as: :logout
-    get :login, to: 'sessions#new', as: :login
-    get :failure, to: 'sessions#failure'
+    get :logout, to: "sessions#destroy", as: :logout
+    get :login, to: "sessions#new", as: :login
+    get :failure, to: "sessions#failure"
   end
 
   # get 'auth/:provider/callback', to: 'sessions#create'
@@ -29,10 +29,10 @@ Rails.application.routes.draw do
   # get '/callback', to: 'auth#callback', as: :callback_auth
   # end
 
-  scope module: 'web' do
-    root to: 'bulletins#index'
+  scope module: "web" do
+    root to: "bulletins#index"
     namespace :admin do
-      root to: 'bulletins#for_moderation'
+      root to: "bulletins#for_moderation"
       resources :bulletins, only: %i[index show] do
         patch :publish
         patch :reject
@@ -54,14 +54,14 @@ Rails.application.routes.draw do
   # Поскольку уже все было написано, а тесты завалились на названиях переменных путей, которые зависят от того как сделаны роуты
   # То надо сделать синонимы и дальше спокойно жить
 
-  scope module: 'web' do
-    patch 'bulletins/:id/archive', to: 'bulletins#archive', as: :archive_bulletin
-    scope module: 'admin' do
-      patch '/admin/bulletins/:bulletin_id/publish', to: 'bulletins#publish', as: :publish_admin_bulletin
-      patch '/admin/bulletins/:bulletin_id/archive', to: 'bulletins#archive', as: :archive_admin_bulletin
-      patch '/admin/bulletins/:bulletin_id/reject', to: 'bulletins#reject', as: :reject_admin_bulletin
+  scope module: "web" do
+    patch "bulletins/:id/archive", to: "bulletins#archive", as: :archive_bulletin
+    scope module: "admin" do
+      patch "/admin/bulletins/:bulletin_id/publish", to: "bulletins#publish", as: :publish_admin_bulletin
+      patch "/admin/bulletins/:bulletin_id/archive", to: "bulletins#archive", as: :archive_admin_bulletin
+      patch "/admin/bulletins/:bulletin_id/reject", to: "bulletins#reject", as: :reject_admin_bulletin
     end
   end
 
-  get 'up' => 'rails/health#show', as: :rails_health_check
+  get "up" => "rails/health#show", as: :rails_health_check
 end

@@ -21,29 +21,29 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
 
   def reject
     @bulletin.reject!
-    flash.notice = t('admin.message.bulletin.rejected')
+    flash.notice = t("admin.message.bulletin.rejected")
   rescue StandardError => e
     pp e
-    flash.alert = t('admin.message.bulletin.reject_failed')
+    flash.alert = t("admin.message.bulletin.reject_failed")
   ensure
     redirect_back(fallback_location: admin_root_path)
   end
 
   def publish
     @bulletin.publish!
-    flash.notice = t('admin.message.bulletin.published')
+    flash.notice = t("admin.message.bulletin.published")
   rescue StandardError => e
     pp e
-    flash.alert = t('admin.message.bulletin.publish_failed')
+    flash.alert = t("admin.message.bulletin.publish_failed")
   ensure
     redirect_back(fallback_location: admin_root_path)
   end
 
   def archive
     @bulletin.archive!
-    flash.notice = t('admin.message.bulletin.archive')
+    flash.notice = t("admin.message.bulletin.archive")
   rescue StandardError
-    flash.alert = t('admin.message.bulletin.archive_fail')
+    flash.alert = t("admin.message.bulletin.archive_fail")
   ensure
     redirect_back(fallback_location: admin_root_path)
   end

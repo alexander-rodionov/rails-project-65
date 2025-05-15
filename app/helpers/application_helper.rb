@@ -3,10 +3,10 @@
 module ApplicationHelper
   def bootstrap_alert_class(flash_type)
     case flash_type.to_sym
-    when :success then 'success'
-    when :error, :alert then 'danger'
-    when :notice then 'info'
-    else 'primary'
+    when :success then "success"
+    when :error, :alert then "danger"
+    when :notice then "info"
+    else "primary"
     end
   end
 

@@ -4,12 +4,12 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    auth = request.env['omniauth.auth']
+    auth = request.env["omniauth.auth"]
 
-    pp 'GITHUB OBJECT'
-    pp '----------------------'
+    pp "GITHUB OBJECT"
+    pp "----------------------"
     pp auth
-    pp '----------------------'
+    pp "----------------------"
 
     email = auth&.info&.email
     name = auth&.info&.name || auth&.info&.nickname
@@ -22,6 +22,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path, notice: 'Signed out!'
+    redirect_to root_path, notice: "Signed out!"
   end
 end

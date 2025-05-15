@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'boot'
-require 'zip'
-require 'base64'
-require 'fileutils'
-require 'rails/all'
+require_relative "boot"
+require "zip"
+require "base64"
+require "fileutils"
+require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -25,7 +25,7 @@ module RailsProject65
     end
     config.i18n.default_locale = :ru
 
-    ENV['RANSACK_FORM_BUILDER'] = '::SimpleForm::FormBuilder'
+    ENV["RANSACK_FORM_BUILDER"] = "::SimpleForm::FormBuilder"
 
     # Configuration for the application, engines, and railties goes here.
     #
