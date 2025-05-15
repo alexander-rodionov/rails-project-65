@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "test_helper"
+require 'test_helper'
 
 class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -10,23 +10,23 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
     @category = categories :transport
   end
 
-  test "should get index" do
+  test 'should get index' do
     get admin_categories_url
     assert_response :success
   end
 
-  test "shoul get new" do
+  test 'shoul get new' do
     get new_admin_category_url
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_admin_category_url(@category)
     assert_response :success
   end
 
-  test "should update" do
-    new_category_name = "New Category Name"
+  test 'should update' do
+    new_category_name = 'New Category Name'
 
     params = {
       category: {
@@ -44,11 +44,11 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_equal new_category_name, @category.name
   end
 
-  test "should create" do
-    assert_difference "Category.count", 1 do
+  test 'should create' do
+    assert_difference 'Category.count', 1 do
       params = {
         category: {
-          name: "Name"
+          name: 'Name'
         }
       }
 

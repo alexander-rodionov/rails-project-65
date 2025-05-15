@@ -13,7 +13,7 @@ class Bulletin < ApplicationRecord
 
   has_one_attached :image
 
-  aasm column: "state" do
+  aasm column: 'state' do
     state :draft, initial: true
     state :under_moderation
     state :published

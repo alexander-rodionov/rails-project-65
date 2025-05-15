@@ -13,13 +13,13 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
 
   def destroy
     @category.destroy!
-    flash[:notice] = t("admin.message.category.destroyed")
+    flash[:notice] = t('admin.message.category.destroyed')
   rescue ActiveRecord::InvalidForeignKey
-    flash[:alert] = t("admin.message.category.destroy_failed_foreign_key")
+    flash[:alert] = t('admin.message.category.destroy_failed_foreign_key')
   rescue ActiveRecord::RecordNotDestroyed
-    flash[:alert] = t("admin.message.category.destroy_failed", errors: @category.errors.full_messages.to_sentence)
+    flash[:alert] = t('admin.message.category.destroy_failed', errors: @category.errors.full_messages.to_sentence)
   rescue StandardError
-    flash[:alert] = t("admin.message.category.destroy_failed")
+    flash[:alert] = t('admin.message.category.destroy_failed')
   ensure
     redirect_to admin_categories_path
   end
@@ -29,9 +29,9 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
   def update
     @category.update!(category_params)
     redirect_to admin_categories_path,
-                notice: t("admin.message.category.updated")
+                notice: t('admin.message.category.updated')
   rescue StandardError
-    flash.now[:alert] = t("admin.message.category.update_failed")
+    flash.now[:alert] = t('admin.message.category.update_failed')
     render :edit, status: :unprocessable_entity
   end
 
@@ -39,9 +39,9 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
     @category = Category.new(category_params)
     @category.save!
     redirect_to admin_categories_path,
-                notice: t("admin.message.category.created")
+                notice: t('admin.message.category.created')
   rescue StandardError
-    flash.now[:alert] = t("admin.message.category.create_failed")
+    flash.now[:alert] = t('admin.message.category.create_failed')
     render :new, status: :unprocessable_entity
   end
 

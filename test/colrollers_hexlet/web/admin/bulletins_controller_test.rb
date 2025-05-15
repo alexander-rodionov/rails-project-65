@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "test_helper"
+require 'test_helper'
 
 class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -8,12 +8,12 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
   end
 
-  test "should get index" do
+  test 'should get index' do
     get admin_bulletins_url
     assert_response :success
   end
 
-  test "should publish" do
+  test 'should publish' do
     bulletin = bulletins :under_moderation
     patch publish_admin_bulletin_url(bulletin)
     assert_response :redirect
@@ -23,7 +23,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert bulletin.published?
   end
 
-  test "should reject" do
+  test 'should reject' do
     bulletin = bulletins :under_moderation
 
     patch reject_admin_bulletin_url(bulletin)
@@ -34,7 +34,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert bulletin.rejected?
   end
 
-  test "should archive" do
+  test 'should archive' do
     bulletin = bulletins :published
 
     patch archive_admin_bulletin_url(bulletin)

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
 
   def load_categories
-    pp "Load Categories"
+    pp 'Load Categories'
     @categories = Category.all
   end
 
@@ -42,6 +42,6 @@ class ApplicationController < ActionController::Base
   end
 
   def handle_pundit_exception
-    redirect_back(fallback_location: root_path, alert: t("errors.messages.not_authorized"))
+    redirect_back(fallback_location: root_path, alert: t('errors.messages.not_authorized'))
   end
 end

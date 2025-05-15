@@ -24,35 +24,35 @@ class Web::BulletinsController < Web::ApplicationController
 
   def update
     @bulletin.update!(bulletin_params)
-    redirect_to profile_path, notice: t("admin.message.bulletin.updated")
+    redirect_to profile_path, notice: t('admin.message.bulletin.updated')
   rescue StandardError
-    redirect_to :edit_bulletin, alert: t("admin.message.bulletin.update_failed")
+    redirect_to :edit_bulletin, alert: t('admin.message.bulletin.update_failed')
   end
 
   def to_moderate
     @bulletin.to_moderation!
-    flash.notice = t("admin.message.bulletin.to_moderate")
+    flash.notice = t('admin.message.bulletin.to_moderate')
   rescue StandardError => e
     pp e
-    flash.alert = t("admin.message.bulletin.to_moderate_fail")
+    flash.alert = t('admin.message.bulletin.to_moderate_fail')
   ensure
     redirect_back(fallback_location: root_path)
   end
 
   def archive
     @bulletin.archive!
-    flash.notice = t("admin.message.bulletin.archive")
+    flash.notice = t('admin.message.bulletin.archive')
   rescue StandardError
-    flash.alert = t("admin.message.bulletin.archive_fail")
+    flash.alert = t('admin.message.bulletin.archive_fail')
   ensure
     redirect_back(fallback_location: root_path)
   end
 
   def create
     @bulletin = Bulletin.create!(bulletin_params)
-    redirect_to profile_path, notice: t("admin.message.bulletin.created")
+    redirect_to profile_path, notice: t('admin.message.bulletin.created')
   rescue StandardError
-    render :new, alert: t("admin.message.bulletin.create_failed")
+    render :new, alert: t('admin.message.bulletin.create_failed')
   end
 
   private
