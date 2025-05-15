@@ -11,14 +11,17 @@ AllCops:
     - '**/Gemfile'
     - '**/Rakefile'
     - 'db/*.rb'
+    - 'db/**.rb'
     - 'db/**/*.rb'
     - 'db/**/*.rake'
+  Exclude:
+    - 
 
 Style/StringLiterals:
   EnforcedStyle: single_quotes
   ConsistentQuotesInMultiline: true
   AutoCorrect: true
-  IgnoredPatterns: []
+  #IgnoredPatterns: []
 
 Style/FrozenStringLiteralComment:
   Enabled: true

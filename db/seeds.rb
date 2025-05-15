@@ -15,7 +15,7 @@ require 'faker'
 Bulletin.destroy_all
 Category.destroy_all
 User.destroy_all
-ActiveStorage::Attachment.all.find_each(&:purge)
+ActiveStorage::Attachment.find_each(&:purge)
 
 30.times do
   User.create!(
