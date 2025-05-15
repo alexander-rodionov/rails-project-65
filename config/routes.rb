@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   # post '/logout', to: 'sessions#destroy', as: :logout
   # get '/login', to: 'sessions#new', as: :login
 
+  post '/auth/github', as: :auth_request
+
   scope :auth do
     scope '/:provider' do
-      get :callback, to: 'sessions#create'
+      get :callback, to: 'sessions#create', as: :callback_auth
     end
     get :logout, to: 'sessions#destroy', as: :logout
     get :login, to: 'sessions#new', as: :login

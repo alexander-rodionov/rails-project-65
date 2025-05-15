@@ -1,4 +1,4 @@
 .container
-  = form_tag('/auth/github', method: 'post', data: {turbo: false}) do
+  = form_tag(auth_request_path, method: 'post', data: {turbo: false}) do
     button type='submit'
       .btn.btn-primary Login with Github
