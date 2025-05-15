@@ -96,3 +96,5 @@ RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails db:seed
 EXPOSE 80
 #CMD ["./bin/thrust", "./bin/rails", "server"]
 CMD ["/rails/launch.sh"]
+
+# SOMETHING CHANGED
