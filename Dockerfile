@@ -85,6 +85,7 @@ ENV PG_PORT=5432
 ENV PG_NAME=rails65
 ENV PG_USER=postgres
 ENV PG_DATA=6j77r865ZwY5xC1P
+ENV DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 
 #RUN chown rails:rails /rails/launch.sh
 #RUN chmod 766 /rails/launch.sh
