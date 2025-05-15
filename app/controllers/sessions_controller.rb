@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     email = auth['info']['email']
     name = auth['info']['name'] || auth['info']['nickname']
     user = User.find_by(email: email)
-    user = User.create!(name: name, email: email, admin: true) unless user
+    user ||= User.create!(name: name, email: email, admin: true)
     session[:user_id] = user.id
     redirect_to root_path, notice: t('message.logged_in')
   rescue StandardError

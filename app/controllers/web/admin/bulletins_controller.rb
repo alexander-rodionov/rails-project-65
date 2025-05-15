@@ -22,8 +22,7 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   def reject
     @bulletin.reject!
     flash.notice = t('admin.message.bulletin.rejected')
-  rescue StandardError => e
-    pp e
+  rescue StandardError
     flash.alert = t('admin.message.bulletin.reject_failed')
   ensure
     redirect_back(fallback_location: admin_root_path)
@@ -32,8 +31,7 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   def publish
     @bulletin.publish!
     flash.notice = t('admin.message.bulletin.published')
-  rescue StandardError => e
-    pp e
+  rescue StandardError
     flash.alert = t('admin.message.bulletin.publish_failed')
   ensure
     redirect_back(fallback_location: admin_root_path)

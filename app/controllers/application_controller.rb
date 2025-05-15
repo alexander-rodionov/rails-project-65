@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
 
   def load_categories
-    pp 'Load Categories'
     @categories = Category.all
   end
 
