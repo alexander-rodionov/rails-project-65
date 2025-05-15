@@ -3,7 +3,7 @@
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
-  OmniAuth.config.test_mode = false
+  OmniAuth.config.test_mode = true
 
   config.assets.digest = true
 

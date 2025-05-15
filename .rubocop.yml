@@ -3,6 +3,7 @@ inherit_gem: { rubocop-rails-omakase: rubocop.yml }
 
 AllCops:
   Include:
+    - Rakefile
     - '**/*.rb'
     - '**/*.rake'
     - '**/*.ru'
@@ -15,9 +16,9 @@ AllCops:
 
 Style/StringLiterals:
   EnforcedStyle: single_quotes
-  #EnforcedStyle: double_quotes
   ConsistentQuotesInMultiline: true
   AutoCorrect: true
+  IgnoredPatterns: []
 
 Style/FrozenStringLiteralComment:
   Enabled: true
@@ -117,11 +118,11 @@ Layout/ExtraSpacing:
   Enabled: true
 
 # Prefer single-quoted strings when you don't need string interpolation or special symbols.
-Style/StringLiterals:
-  Enabled: true
-  EnforcedStyle: single_quotes
-  #EnforcedStyle: double_quotes
-  AutoCorrect: true
+# Style/StringLiterals:
+#   Enabled: true
+#   EnforcedStyle: single_quotes
+#   #EnforcedStyle: double_quotes
+#   AutoCorrect: true
 
 # Use underscores(_) as thousands separator and separate every 3 digits with them.
 Style/NumericLiterals:
