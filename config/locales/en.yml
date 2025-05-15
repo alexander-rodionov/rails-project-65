@@ -140,6 +140,7 @@ en:
 
   message:
     logged_in: Logged in sucessfully
+    log_in_error: Can't login
     logged_out: Logged out successfully
 
   views:

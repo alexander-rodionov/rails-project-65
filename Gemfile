@@ -53,7 +53,9 @@ gem 'omniauth-rails_csrf_protection'
 gem 'pg', groups: [:production]
 gem 'pundit'
 gem 'ransack'
+gem 'rubocop-rails-omakase'
 gem 'simple_form'
+gem 'slim_lint'
 gem 'slim-rails'
 
 group :development, :test do
@@ -66,7 +68,7 @@ group :development, :test do
   gem 'faker'
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
-  gem 'rubocop-rails-omakase', require: false
+  # gem 'rubocop-rails-omakase'
 end
 
 group :development do
