@@ -8,7 +8,7 @@ class BulletinPolicy < ApplicationPolicy
 
   ALLOWED_ACTIONS.each { |action| define_method(action) { true } }
 
-  OWNER_ACTIONS.each { |action| define_method(action) { record.user.email == user.email } }
+  OWNER_ACTIONS.each { |action| define_method(action) { record.user == user } }
 
   OWNER_OR_ADMIN_ACTIONS.each { |action| define_method(action) { user.admin? || record.user == user } }
 
