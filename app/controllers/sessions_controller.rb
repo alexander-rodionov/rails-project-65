@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
     email = auth&.info&.email
     name = auth&.info&.name
-    user =  User.create!(name: name, email: email, admin: true)
+    user = User.create!(name: name, email: email, admin: true)
     session[:user_id] = user.id
     redirect_to root_path, notice: auth.to_h
   rescue Exception => e

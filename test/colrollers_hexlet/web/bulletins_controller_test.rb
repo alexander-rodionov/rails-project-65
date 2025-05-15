@@ -3,7 +3,6 @@
 require 'test_helper'
 
 class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
-
   def setup
     @user = users(:one)
     @published_bulletin = bulletins(:published)

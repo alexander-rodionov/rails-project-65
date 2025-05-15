@@ -3,7 +3,6 @@
 require 'test_helper'
 
 class Web::ProfilesControllerTest < ActionDispatch::IntegrationTest
-
   setup do
     @user = users :one
   end
