@@ -45,7 +45,7 @@ gem 'thruster', require: false
 # gem "image_processing", "~> 1.2"
 
 gem 'aasm'
-gem 'dotenv'
+gem 'dotenv-rails'
 gem 'html2slim'
 gem 'kaminari'
 gem 'omniauth-github'
