@@ -4,9 +4,6 @@ tr
   /td = l(item.created_at, format: :short)
   td = human_date(item.created_at)
   td
-    = link_to t('admin.action.show'), bulletin_path(item), class: "me-2"
+    = link_to t('admin.action.show'), bulletin_path(item), class: 'me-2'
     - if item.may_archive?
-      = link_to t('admin.action.archive'), archive_bulletin_path(item), class: "me-2 text-danger", data: { turbo_method: :patch, turbo_confirm: t('admin.confirm.archive') }
-
-    
-
+      = link_to t('admin.action.archive'), archive_bulletin_path(item), class: 'me-2 text-danger', data: { turbo_method: :patch, turbo_confirm: t('admin.confirm.archive') }
