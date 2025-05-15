@@ -3,7 +3,7 @@ meta:
   toolchain:
     name: docker
 build:
-  dockerfile: amvera.dockerfile
+  dockerfile: Dockerfile
 run:
   containerPort: "80"
 
