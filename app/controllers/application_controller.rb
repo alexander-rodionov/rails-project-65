@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
-  def handle_pundit_exception(e)
+  def handle_pundit_exception(_e)
     redirect_back(fallback_location: root_path, alert: t('errors.messages.not_authorized'))
   end
 end

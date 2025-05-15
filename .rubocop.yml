@@ -111,3 +111,77 @@ Layout/IndentationStyle:
 
 Layout/ExtraSpacing:
   Enabled: true
+
+# Prefer single-quoted strings when you don't need string interpolation or special symbols.
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
+
+# Use underscores(_) as thousands separator and separate every 3 digits with them.
+Style/NumericLiterals:
+  Enabled: true
+
+# Use %w or %W for an array of words.
+Style/WordArray:
+  Enabled: true
+
+# Use anonymous positional arguments forwarding (*).
+Style/ArgumentsForwarding:
+  Enabled: true
+
+# Avoid rescuing the Exception class. Perhaps you meant to rescue StandardError?
+Lint/RescueException:
+  Enabled: true
+
+# Avoid rescuing without specifying an error class.
+Style/RescueStandardError:
+  Enabled: true
+
+# Keep a blank line before and after private.
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: true
+
+# Do not use space inside array brackets.
+Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: true
+
+# Use &:purge as an argument to each instead of a block.
+Style/SymbolProc:
+  Enabled: true
+
+# Use find_each instead of each.
+Rails/FindEach:
+  Enabled: true
+
+# Use ENV.fetch('VAR') or ENV.fetch('VAR', nil) instead of ENV['VAR'].
+Style/FetchEnvVar:
+  Enabled: true
+
+# Freeze mutable objects assigned to constants.
+Style/MutableConstant:
+  Enabled: true
+
+# Method parameter must be at least 3 characters long.
+Naming/MethodParameterName:
+  Enabled: true
+  MinNameLength: 3
+
+# Use Time.zone.now, Time.current, etc., instead of Time.now.
+Rails/TimeZone:
+  Enabled: true
+
+# Add a frozen string literal comment to the top of files.
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+# Expected 1 empty line between method definitions; found 0.
+Layout/EmptyLineBetweenDefs:
+  Enabled: true
+
+# Don't use parentheses around an interpolated expression.
+Style/RedundantParentheses:
+  Enabled: true
+
+# Use _ or _name as an argument name to indicate that it won't be used.
+Lint/UnusedMethodArgument:
+  Enabled: true

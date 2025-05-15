@@ -15,7 +15,7 @@ module ApplicationHelper
   end
 
   def human_date(from_time)
-    distance_of_time_in_words(from_time, Time.now)
+    distance_of_time_in_words(from_time, Time.zone.now)
   end
 
   def user_present?

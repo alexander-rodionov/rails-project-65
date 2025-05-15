@@ -7,7 +7,7 @@ require 'rails/test_help'
 OmniAuth.config.test_mode = true
 # test_path = File.expand_path('fixtures', __dir__)
 
-ActiveSupport::TestCase.fixture_paths = [ENV['FIXTURES_DIR']]
+ActiveSupport::TestCase.fixture_paths = [ ENV.fetch('FIXTURES_DIR', nil) ]
 
 class ActiveSupport::TestCase
   parallelize(workers: :number_of_processors)
@@ -21,7 +21,7 @@ end
 class ActionDispatch::IntegrationTest
   # include AuthManagement
 
-  def sign_in(user, options = {})
+  def sign_in(user, _options = {})
     auth_hash = {
       provider: 'github',
       uid: '12345',

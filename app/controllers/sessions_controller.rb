@@ -2,6 +2,7 @@
 
 class SessionsController < ApplicationController
   def new; end
+
   def create
     auth = request.env['omniauth.auth']
 
@@ -11,7 +12,7 @@ class SessionsController < ApplicationController
     pp '----------------------'
 
     email = auth&.info&.email
-    name = auth&.info&.name
+    name = auth&.info&.name || auth&.info&.nickname
     user = User.create!(name: name, email: email, admin: true)
     session[:user_id] = user.id
     redirect_to root_path, notice: auth.to_h

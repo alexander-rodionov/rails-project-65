@@ -30,7 +30,7 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
     @category.update!(category_params)
     redirect_to admin_categories_path,
                 notice: t('admin.message.category.updated')
-  rescue
+  rescue StandardError
     flash.now[:alert] = t('admin.message.category.update_failed')
     render :edit, status: :unprocessable_entity
   end
@@ -40,12 +40,13 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
     @category.save!
     redirect_to admin_categories_path,
                 notice: t('admin.message.category.created')
-  rescue
+  rescue StandardError
     flash.now[:alert] = t('admin.message.category.create_failed')
     render :new, status: :unprocessable_entity
   end
 
   private
+
   def category_params
     params.require(:category).permit(:name)
   end

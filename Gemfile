@@ -50,7 +50,7 @@ gem 'html2slim'
 gem 'kaminari'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
-gem 'pg', groups: [:production]
+gem 'pg', groups: [ :production ]
 gem 'pundit'
 gem 'ransack'
 gem 'simple_form'

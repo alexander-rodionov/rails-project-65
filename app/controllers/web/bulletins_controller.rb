@@ -25,7 +25,7 @@ class Web::BulletinsController < Web::ApplicationController
   def update
     @bulletin.update!(bulletin_params)
     redirect_to profile_path, notice: t('admin.message.bulletin.updated')
-  rescue
+  rescue StandardError
     redirect_to :edit_bulletin, alert: t('admin.message.bulletin.update_failed')
   end
 
@@ -51,7 +51,7 @@ class Web::BulletinsController < Web::ApplicationController
   def create
     @bulletin = Bulletin.create!(bulletin_params)
     redirect_to profile_path, notice: t('admin.message.bulletin.created')
-  rescue
+  rescue StandardError
     render :new, alert: t('admin.message.bulletin.create_failed')
   end
 
