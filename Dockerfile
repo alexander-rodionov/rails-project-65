@@ -80,16 +80,16 @@ COPY --from=build /rails /rails
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
-ENV PG_HOST=amvera-rodionovalex-cnpg-rails65-rw
-ENV PG_PORT=5432
-ENV PG_NAME=rails65
-ENV PG_USER=rails65-db-user
-ENV PG_PASSWORD=1eF2wf25LQHDJbI6
+# ENV PG_HOST=amvera-rodionovalex-cnpg-rails65-rw
+# ENV PG_PORT=5432
+# ENV PG_NAME=rails65
+# ENV PG_USER=rails65-db-user
+# ENV PG_PASSWORD=1eF2wf25LQHDJbI6
 
 #RUN chown rails:rails /rails/launch.sh
 #RUN chmod 766 /rails/launch.sh
 RUN echo PGHOST:$PG_HOST
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails db:create db:migrate
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails solid_queue:install:migrations db:migrate
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails db:seed
 
 # Start server via Thruster by default, this can be overwritten at runtime
