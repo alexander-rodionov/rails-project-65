@@ -8,6 +8,7 @@ ru:
     admin: Администратор
     login: Войти
     logout: Выйти
+    login_with_git: Войти через Git
 
   bulletin:
     public:

@@ -8,6 +8,7 @@ en:
     admin: Admin
     login: Log in
     logout: Log out
+    login_with_git: Log in with Git
 
 
   bulletin:

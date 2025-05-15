@@ -1,4 +1,5 @@
 .container
   = form_tag(auth_request_path('github'), method: 'post', data: { turbo: false }) do
     .d-flex.justify-content-center
-      button type='submit' class='btn btn-primary' Login with Github
+      button type='submit' class='btn btn-primary'
+        =t('header.login_with_git')
