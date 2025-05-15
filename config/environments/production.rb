@@ -7,10 +7,9 @@ Rails.application.configure do
 
   config.require_master_key = false
 
-
   # Code is not reloaded between requests.
   config.enable_reloading = false
-  
+
   # Eager load code on boot for better performance and memory savings (ignored by Rake tasks).
   config.eager_load = true
 

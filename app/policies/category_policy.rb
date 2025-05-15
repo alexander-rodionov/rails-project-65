@@ -10,5 +10,4 @@ class CategoryPolicy < ApplicationPolicy
   OWNER_ACTIONS.each { |action| define_method(action) { record.user == user } }
 
   ADMIN_ACTIONS.each { |action| define_method(action) { user.admin? } }
-
 end

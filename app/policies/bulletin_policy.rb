@@ -13,5 +13,4 @@ class BulletinPolicy < ApplicationPolicy
   OWNER_OR_ADMIN_ACTIONS.each { |action| define_method(action) { user.admin? || record.user == user } }
 
   ADMIN_ACTIONS.each { |action| define_method(action) { user.admin? } }
-
 end
