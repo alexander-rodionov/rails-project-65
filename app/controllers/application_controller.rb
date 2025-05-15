@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
 
   def load_categories
+    pp 'Load Categories'
     @categories = Category.all
   end
 
@@ -40,7 +41,7 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
-  def handle_pundit_exception
+  def handle_pundit_exception(e)
     redirect_back(fallback_location: root_path, alert: t('errors.messages.not_authorized'))
   end
 end

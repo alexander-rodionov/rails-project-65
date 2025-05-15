@@ -18,7 +18,9 @@ class Web::BulletinsController < Web::ApplicationController
     @bulletin = Bulletin.new
   end
 
-  def edit; end
+  def edit
+    render :edit
+  end
 
   def update
     @bulletin.update!(bulletin_params)

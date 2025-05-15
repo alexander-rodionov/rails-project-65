@@ -3,7 +3,6 @@
 require 'test_helper'
 
 class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
-  def sign_in(user); end
 
   def setup
     @user = users(:one)
@@ -50,7 +49,6 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     }
 
     # log_params(params.to_json)
-    debugger
     patch bulletin_url(@draft_bulletin), params: params
 
     assert_response :redirect
