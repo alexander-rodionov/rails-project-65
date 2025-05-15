@@ -31,6 +31,7 @@ ru:
     title:
       index: Мои объявления
       new: Добавить объявление
+      edit: Редактировать объявление
     column:
       title: Название
       state: Состояние
@@ -51,12 +52,18 @@ ru:
 
   simple_form:
     labels:
+      defaults:
+        file: "Выберите файл"
       bulletin:
         title: Название
         description: Описание
-        category: Категория
+        category_id: Категория
+        image: Изображение
       category:
         name: Название
+    hints:
+      defaults:
+        file: "Файл не выбран"
 
   admin:
     nav:
@@ -123,6 +130,7 @@ ru:
   errors:
     messages:
       blank: НЕ МОЖЕТ БЫТЬ ПУСТЫМ
+      not_authorized: Действие не авторизовано
 
   views:
     pagination:

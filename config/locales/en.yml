@@ -32,6 +32,7 @@ en:
     title:
       index: My classifieds
       new: Append classified
+      edit: Edit classified
     column:
       title: Title
       state: State
@@ -53,12 +54,18 @@ en:
     
   simple_form:
     labels:
+      defaults:
+        file: "Choose File"
       bulletin:
         title: Title
         description: Description
-        category: Category
+        category_id: Category
+        image: Image
       category:
         name: Name
+    hints:
+      defaults:
+        file: "No File Chosen"
 
   admin:
     nav:
@@ -121,11 +128,15 @@ en:
         reject_failed: Failed to reject
         published: Sucessfully published
         publish_failed: Failed to publish
+      common:
+        not_authorized: Action not authorized
 
 
   errors:
     messages:
       blank: CAN"T BE BLANK
+      not_authorized: Action not authorized
+
 
   views:
     pagination:

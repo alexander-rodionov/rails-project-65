@@ -2,6 +2,9 @@
 
 class ApplicationController < ActionController::Base
   include RouteSynonymsHelper
+  include Pundit
+
+  rescue_from Pundit::NotAuthorizedError, with: :handle_pundit_exception
 
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
@@ -13,6 +16,7 @@ class ApplicationController < ActionController::Base
   def set_bulletin
     item_id = params[:bulletin_id] || param_id
     @bulletin = Bulletin.find(item_id)
+    authorize @bulletin
   end
 
   def param_id
@@ -21,6 +25,7 @@ class ApplicationController < ActionController::Base
 
   def set_category
     @category = Category.find(param_id)
+    authorize @category
   end
 
   def set_page_params
@@ -33,5 +38,9 @@ class ApplicationController < ActionController::Base
 
   def current_user
     User.first
+  end
+
+  def handle_pundit_exception
+    redirect_back(fallback_location: root_path, alert: t('errors.messages.not_authorized'))
   end
 end
