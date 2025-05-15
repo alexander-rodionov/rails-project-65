@@ -7,7 +7,7 @@
           small.form-text.text-muted.m-0 = t('bulletin.search.title_label')
       .col-4
         .field
-          = f.select :category_id_eq, options_for_select(categories_name(@categories), 
+          = f.select :category_id_eq, options_for_select(categories_name(@categories),
             selected: @q_params&.fetch(:category_id_eq, nil)), { include_blank: t('bulletin.search.category_option_default') },
             class: 'form-control'
           small.form-text.text-muted.m-0 = t('bulletin.search.category_label')
