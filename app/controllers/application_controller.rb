@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    User.first
+    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
   def handle_pundit_exception

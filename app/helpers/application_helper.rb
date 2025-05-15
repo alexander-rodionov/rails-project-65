@@ -17,4 +17,12 @@ module ApplicationHelper
   def human_date(from_time)
     distance_of_time_in_words(from_time, Time.now)
   end
+
+  def user_present?
+    controller.current_user.present?
+  end
+
+  def user_admin?
+    controller.current_user.present? && controller.current_user.admin
+  end
 end

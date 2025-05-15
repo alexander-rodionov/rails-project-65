@@ -6,6 +6,7 @@ en:
     profile: My classifieds
     add: Append
     admin: Admin
+    login: Log in
     logout: Log out
 
 
@@ -137,6 +138,9 @@ en:
       blank: CAN"T BE BLANK
       not_authorized: Action not authorized
 
+  message:
+    logged_in: Logged in sucessfully
+    logged_out: Logged out successfully
 
   views:
     pagination:

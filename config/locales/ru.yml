@@ -6,6 +6,7 @@ ru:
     profile: Мои объявления
     add: Добавить
     admin: Администратор
+    login: Войти
     logout: Выйти
 
   bulletin:
@@ -138,6 +139,10 @@ ru:
       first: "<<"
       next: ">"
       previous: "<"
+
+  message:
+    logged_in: Вход выполнен успешно
+    logged_out: Выход выполнен успешно
 
   datetime:
     distance_in_words:
