@@ -82,7 +82,7 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 #RUN chown rails:rails /rails/launch.sh
 #RUN chmod 766 /rails/launch.sh
-
+RUN echo PGHOST:$PG_HOST
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails db:migrate
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails db:seed
 
