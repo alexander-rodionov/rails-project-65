@@ -48,7 +48,7 @@ production:
     port: <%= ENV['PG_PORT'] %>
     database: <%= ENV['PG_NAME'] %>
     username: <%= ENV['PG_USER'] %>
-    password: <%= ENV['PG_PASSWORD'] %>
+    password: <%= ENV['PG_DATA'] %>
     encoding: unicode
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
     timeout: 5000
@@ -59,7 +59,7 @@ production:
     port: <%= ENV['PG_PORT'] %>
     database: <%= ENV['PG_NAME'] %>
     username: <%= ENV['PG_USER'] %>
-    password: <%= ENV['PG_PASSWORD'] %>
+    password: <%= ENV['PG_DATA'] %>
     encoding: unicode
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
     timeout: 5000
@@ -70,7 +70,7 @@ production:
     port: <%= ENV['PG_PORT'] %>
     database: <%= ENV['PG_NAME'] %>
     username: <%= ENV['PG_USER'] %>
-    password: <%= ENV['PG_PASSWORD'] %>
+    password: <%= ENV['PG_DATA'] %>
     encoding: unicode
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
     timeout: 5000
@@ -81,7 +81,7 @@ production:
     port: <%= ENV['PG_PORT'] %>
     database: <%= ENV['PG_NAME'] %>
     username: <%= ENV['PG_USER'] %>
-    password: <%= ENV['PG_PASSWORD'] %>
+    password: <%= ENV['PG_DATA'] %>
     encoding: unicode
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
     timeout: 5000
