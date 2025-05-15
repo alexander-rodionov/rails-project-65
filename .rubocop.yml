@@ -116,6 +116,7 @@ Layout/ExtraSpacing:
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: single_quotes
+  AutoCorrect: true
 
 # Use underscores(_) as thousands separator and separate every 3 digits with them.
 Style/NumericLiterals:
@@ -144,6 +145,7 @@ Layout/EmptyLinesAroundAccessModifier:
 # Do not use space inside array brackets.
 Layout/SpaceInsideArrayLiteralBrackets:
   Enabled: true
+  EnforcedStyle: no_space
 
 # Use &:purge as an argument to each instead of a block.
 Style/SymbolProc:

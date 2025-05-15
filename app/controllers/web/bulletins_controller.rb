@@ -32,7 +32,7 @@ class Web::BulletinsController < Web::ApplicationController
   def to_moderate
     @bulletin.to_moderation!
     flash.notice = t('admin.message.bulletin.to_moderate')
-  rescue Exception => e
+  rescue StandardError => e
     pp e
     flash.alert = t('admin.message.bulletin.to_moderate_fail')
   ensure
@@ -42,7 +42,7 @@ class Web::BulletinsController < Web::ApplicationController
   def archive
     @bulletin.archive!
     flash.notice = t('admin.message.bulletin.archive')
-  rescue Exception
+  rescue StandardError
     flash.alert = t('admin.message.bulletin.archive_fail')
   ensure
     redirect_back(fallback_location: root_path)

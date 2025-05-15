@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     user = User.create!(name: name, email: email, admin: true)
     session[:user_id] = user.id
     redirect_to root_path, notice: auth.to_h
-  rescue Exception => e
+  rescue StandardError => e
     redirect_back alert: e.to_s
   end
 

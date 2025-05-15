@@ -21,7 +21,7 @@ ActiveStorage::Attachment.all.find_each(&:purge)
   User.create!(
     name: Faker::Name.unique.name,
     email: Faker::Internet.unique.email,
-    admin: [ true, false ].sample
+    admin: [true, false].sample
   )
 end
 

@@ -7,7 +7,7 @@ require 'rails/test_help'
 OmniAuth.config.test_mode = true
 # test_path = File.expand_path('fixtures', __dir__)
 
-ActiveSupport::TestCase.fixture_paths = [ ENV.fetch('FIXTURES_DIR', nil) ]
+ActiveSupport::TestCase.fixture_paths = [ENV.fetch('FIXTURES_DIR', nil)]
 
 class ActiveSupport::TestCase
   parallelize(workers: :number_of_processors)
