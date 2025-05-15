@@ -54,10 +54,34 @@ production:
     timeout: 5000
 
   cache:
-    <<: *primary
+    adapter: postgresql
+    host: <%= ENV['PG_HOST'] %>
+    port: <%= ENV['PG_PORT'] %>
+    database: <%= ENV['PG_NAME'] %>
+    username: <%= ENV['PG_USER'] %>
+    password: <%= ENV['PG_PASSWORD'] %>
+    encoding: unicode
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    timeout: 5000
 
   queue:
-    <<: *primary
+    adapter: postgresql
+    host: <%= ENV['PG_HOST'] %>
+    port: <%= ENV['PG_PORT'] %>
+    database: <%= ENV['PG_NAME'] %>
+    username: <%= ENV['PG_USER'] %>
+    password: <%= ENV['PG_PASSWORD'] %>
+    encoding: unicode
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    timeout: 5000
 
   cable:
-    <<: *primary
+    adapter: postgresql
+    host: <%= ENV['PG_HOST'] %>
+    port: <%= ENV['PG_PORT'] %>
+    database: <%= ENV['PG_NAME'] %>
+    username: <%= ENV['PG_USER'] %>
+    password: <%= ENV['PG_PASSWORD'] %>
+    encoding: unicode
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    timeout: 5000
