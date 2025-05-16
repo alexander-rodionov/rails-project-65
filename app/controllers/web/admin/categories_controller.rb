@@ -20,7 +20,8 @@ module Web
         @category.save!
         redirect_to admin_categories_path,
                     notice: t('admin.message.category.created')
-      rescue StandardError
+      rescue StandardError => e
+        register_rollbar_error(e)
         flash.now[:alert] = t('admin.message.category.create_failed')
         render :new, status: :unprocessable_entity
       end
@@ -29,7 +30,8 @@ module Web
         @category.update!(category_params)
         redirect_to admin_categories_path,
                     notice: t('admin.message.category.updated')
-      rescue StandardError
+      rescue StandardError => e
+        register_rollbar_error(e)
         flash.now[:alert] = t('admin.message.category.update_failed')
         render :edit, status: :unprocessable_entity
       end
@@ -41,7 +43,8 @@ module Web
         flash[:alert] = t('admin.message.category.destroy_failed_foreign_key')
       rescue ActiveRecord::RecordNotDestroyed
         flash[:alert] = t('admin.message.category.destroy_failed', errors: @category.errors.full_messages.to_sentence)
-      rescue StandardError
+      rescue StandardError => e
+        register_rollbar_error(e)
         flash[:alert] = t('admin.message.category.destroy_failed')
       ensure
         redirect_to admin_categories_path
