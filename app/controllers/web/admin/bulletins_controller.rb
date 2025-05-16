@@ -24,7 +24,8 @@ module Web
       def reject
         @bulletin.reject!
         flash.notice = t('admin.message.bulletin.rejected')
-      rescue StandardError
+      rescue StandardError => exception
+        register_rollbar_error(exception)
         flash.alert = t('admin.message.bulletin.reject_failed')
       ensure
         redirect_back(fallback_location: admin_root_path)
@@ -33,7 +34,8 @@ module Web
       def publish
         @bulletin.publish!
         flash.notice = t('admin.message.bulletin.published')
-      rescue StandardError
+      rescue StandardError => exception
+        register_rollbar_error(exception)
         flash.alert = t('admin.message.bulletin.publish_failed')
       ensure
         redirect_back(fallback_location: admin_root_path)
@@ -42,7 +44,8 @@ module Web
       def archive
         @bulletin.archive!
         flash.notice = t('admin.message.bulletin.archive')
-      rescue StandardError
+      rescue StandardError => exception
+        register_rollbar_error(exception)
         flash.alert = t('admin.message.bulletin.archive_fail')
       ensure
         redirect_back(fallback_location: admin_root_path)

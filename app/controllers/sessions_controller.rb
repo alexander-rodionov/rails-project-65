@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
     user ||= User.create!(name: name, email: email, admin: true)
     session[:user_id] = user.id
     redirect_to root_path, notice: t('message.logged_in')
-  rescue StandardError
+  rescue StandardError => exception
+    register_rollbar_error(exception)
     redirect_to root_path, alert: t('message.log_in_error')
   end
 
