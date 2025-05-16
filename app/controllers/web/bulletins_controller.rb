@@ -26,24 +26,24 @@ module Web
     def create
       @bulletin = Bulletin.create!(bulletin_params)
       redirect_to profile_path, notice: t('admin.message.bulletin.created')
-    rescue StandardError => exception
-      register_rollbar_error(exception)
+    rescue StandardError => e
+      register_rollbar_error(e)
       render :new, alert: t('admin.message.bulletin.create_failed')
     end
 
     def update
       @bulletin.update!(bulletin_params)
       redirect_to profile_path, notice: t('admin.message.bulletin.updated')
-    rescue StandardError => exception
-      register_rollbar_error(exception)
+    rescue StandardError => e
+      register_rollbar_error(e)
       redirect_to :edit_bulletin, alert: t('admin.message.bulletin.update_failed')
     end
 
     def to_moderate
       @bulletin.to_moderation!
       flash.notice = t('admin.message.bulletin.to_moderate')
-    rescue StandardError => exception
-      register_rollbar_error(exception)
+    rescue StandardError => e
+      register_rollbar_error(e)
       flash.alert = t('admin.message.bulletin.to_moderate_fail')
     ensure
       redirect_back(fallback_location: root_path)
@@ -52,8 +52,8 @@ module Web
     def archive
       @bulletin.archive!
       flash.notice = t('admin.message.bulletin.archive')
-    rescue StandardError => exception
-      register_rollbar_error(exception)
+    rescue StandardError => e
+      register_rollbar_error(e)
       flash.alert = t('admin.message.bulletin.archive_fail')
     ensure
       redirect_back(fallback_location: root_path)
