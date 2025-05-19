@@ -28,6 +28,7 @@ module Web
       if @bulletin.save
         redirect_to profile_path, notice: t('admin.message.bulletin.created')
       else
+        session[:bulletin_image] = bulletin_params[:image] if bulletin_params[:image]
         flash.now[:alert] = t('admin.message.bulletin.create_failed')
         render :new, status: :unprocessable_entity
       end

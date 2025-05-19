@@ -155,6 +155,7 @@ ru:
     logged_in: Вход выполнен успешно
     log_in_error: Войти не получилось
     logged_out: Выход выполнен успешно
+    image_attached: Изображение приложено, чтобы изменить загрузите его еще раз.
 
   datetime:
     distance_in_words:

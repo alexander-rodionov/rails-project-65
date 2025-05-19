@@ -153,6 +153,7 @@ en:
     logged_in: Logged in sucessfully
     log_in_error: Can't login
     logged_out: Logged out successfully
+    image_attached: Image uploaded, reupload to change.
 
   views:
     pagination:

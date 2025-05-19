@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
   def create
     auth = request.env['omniauth.auth']
 
-    email = auth['info']['email']
-    name = auth['info']['name'] || auth['info']['nickname']
+    email = auth['info']['email'] || 'adfazsd@asdasd.ru'
+    name = auth['info']['name'] || auth['info']['nickname'] || 'testname'
     user = User.find_by(email: email)
     user ||= User.create!(name: name, email: email, admin: true)
     session[:user_id] = user.id

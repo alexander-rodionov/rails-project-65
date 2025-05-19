@@ -1,9 +1,7 @@
 = simple_form_for @bulletin do |f|
   = f.input :title
   = f.input :description
-  = f.association :category,
-                  collection: @categories,
-                  include_blank: true
-  = image_tag(@bulletin.image, class: 'img-thumbnail mb-2') if @bulletin.image.attached?
+  = f.association :category, collection: @categories, include_blank: true
+  = image_tag(@bulletin.image, class: 'img-thumbnail mb-2') if @bulletin.image.attached? && @bulletin.image.persisted?
   = f.input :image, as: :file
   = f.submit action_title, class: 'btn btn-primary'
