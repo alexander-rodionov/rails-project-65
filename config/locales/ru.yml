@@ -131,8 +131,18 @@ ru:
 
   errors:
     messages:
-      blank: НЕ МОЖЕТ БЫТЬ ПУСТЫМ
+      blank: не может быть пустым
+      required: не может быть пустым
       not_authorized: Действие не авторизовано
+      too_short: слишком короткое
+      too_long: слишком длинное
+      taken: уже существует
+
+  support:
+    array:
+      last_word_connector: " и "
+      two_words_connector: " и "
+
 
   views:
     pagination:
@@ -207,3 +217,16 @@ ru:
       over_x_years_ago: "больше %{count} лет назад"
       almost_x_years_ago: "почти %{count} лет назад"
       x_years_ago: "%{count} лет назад"
+  
+  activerecord:
+    attributes:
+      bulletin:
+        title: Название
+        description: Описание
+        category: Категория
+        image: Изображение
+      category:
+        name: Название
+    errors:
+      messages:
+        record_invalid: Запись неверна

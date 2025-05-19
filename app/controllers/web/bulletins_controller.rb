@@ -3,7 +3,7 @@
 module Web
   class BulletinsController < Web::ApplicationController
     before_action :set_bulletin, only: %i[show edit update to_moderate archive]
-    before_action :load_categories, only: %i[new index edit]
+    before_action :load_categories, only: %i[new index edit create]
     before_action :set_q_params, only: :index
     before_action :set_page_params, only: :index
 
@@ -24,8 +24,13 @@ module Web
     end
 
     def create
-      @bulletin = Bulletin.create!(bulletin_params)
-      redirect_to profile_path, notice: t('admin.message.bulletin.created')
+      @bulletin = Bulletin.new(bulletin_params)
+      if @bulletin.save
+        redirect_to profile_path, notice: t('admin.message.bulletin.created')
+      else
+        flash.now[:alert] = t('admin.message.bulletin.create_failed')
+        render :new, status: :unprocessable_entity
+      end
     rescue StandardError => e
       register_rollbar_error(e)
       render :new, alert: t('admin.message.bulletin.create_failed')

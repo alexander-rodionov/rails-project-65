@@ -9,7 +9,18 @@ class Bulletin < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
 
+  validates :title, length: {
+    minimum: 2,
+    maximum: 50
+  }
+
+  validates :description, length: {
+    minimum: 5,
+    maximum: 1000
+  }
+
   has_one_attached :image
+  validates :image, attached: true
 
   aasm column: 'state' do
     state :draft, initial: true
@@ -41,5 +52,11 @@ class Bulletin < ApplicationRecord
 
   def self.ransackable_associations(_auth_object = nil)
     %w[category]
+  end
+
+  private
+
+  def image_attached
+    errors.add(:image, :blank) unless image.attached?
   end
 end

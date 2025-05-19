@@ -136,8 +136,18 @@ en:
 
   errors:
     messages:
-      blank: CAN"T BE BLANK
+      blank: can't be blank
+      required: can't be blank
       not_authorized: Action not authorized
+      too_short: too short
+      too_long: too long
+      taken: already taken
+
+  support:
+    array:
+      last_word_connector: " and "
+      two_words_connector: " and "
+
 
   message:
     logged_in: Logged in sucessfully
@@ -211,3 +221,18 @@ en:
       over_x_years_ago: "over %{count} years ago"
       almost_x_years_ago: "almost %{count} years ago"
       x_years_ago: "%{count} years ago"
+
+  activerecord:
+    attributes:
+      bulletin:
+        title: Title
+        description: Description
+        category: Category
+        image: Image
+      category:
+        name: Name
+    errors:
+      messages:
+        record_invalid: Record invalid
+
+        

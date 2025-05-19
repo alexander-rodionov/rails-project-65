@@ -22,15 +22,15 @@ end
 end
 
 100.times do
-  b = Bulletin.create!(
+  b = Bulletin.new(
     title: Faker::Book.unique.title,
     description: Faker::Lorem.paragraph,
     category: Category.all.sample,
     state: %w[draft published archived].sample,
     user: User.all.sample
   )
-
   file_name = "db/seed_images/#{1 + (5 * rand).floor}.jpg"
   image_file = File.open(file_name)
   b.image.attach(io: image_file, filename: file_name)
+  b.save!
 end
