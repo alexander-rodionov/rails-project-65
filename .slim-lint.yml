@@ -1,3 +1,6 @@
+include:
+  - app/views/**/*.slim
+  
 linters:
   LineLength:
     enabled: true
