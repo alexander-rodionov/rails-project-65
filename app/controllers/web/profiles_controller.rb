@@ -7,7 +7,8 @@ module Web
 
     def show
       @page = params[:page] || 0
-      @q = Bulletin.where(user: current_user).ransack(params[:q]&.permit!)
+      q_params = params[:q]&.permit(%i[title_cont category_id_eq state_eq])
+      @q = Bulletin.where(user: current_user).ransack(q_params)
       @bulletins = @q.result.page(@page).per(PAGE_SIZE)
       @total_pages = @bulletins.total_pages
     end

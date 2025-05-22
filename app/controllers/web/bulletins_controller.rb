@@ -8,7 +8,7 @@ module Web
     before_action :load_categories, only: %i[new index edit create]
 
     def index
-      @q_params = params[:q]&.permit!
+      @q_params = params[:q]&.permit(%i[title_cont category_id_eq state_eq])
       @page = params[:page] || 0
       @q = Bulletin.where(state: :published).ransack(@q_params)
       @bulletins = @q.result.page(@page).per(PAGE_SIZE)
