@@ -32,14 +32,15 @@ Rails.application.routes.draw do
   scope module: 'web' do
     root to: 'bulletins#index'
     namespace :admin do
-      root to: 'bulletins#for_moderation'
+      # root to: 'bulletins#for_moderation'
+      root to: 'bulletins#index', defaults: { q: { state_eq: 'under_moderation' } }
       resources :bulletins, only: %i[index show] do
         patch :publish
         patch :reject
         patch :archive
-        collection do
-          get :for_moderation
-        end
+        # collection do
+        #   get :for_moderation
+        # end
       end
       resources :categories
     end

@@ -1,8 +1,9 @@
-- content_for :section_title, t('admin.title.bulletins')
+- content_for :section_title, for_moderation? ? t('admin.title.for_moderation') : t('admin.title.bulletins')
 = render 'web/admin/shared/nav_panel'
-  - content_for :search_url, admin_bulletins_path
-  ==render 'shared/search'
-  = render 'bulletin_table' do
+  - unless for_moderation?
+    - content_for :search_url, admin_bulletins_path
+    ==render 'shared/search'
+  = render for_moderation? ? 'bulletin_table_for_moderation' : 'bulletin_table' do
     - @bulletins.each do |item|
-      = render 'bulletin_row', item:
+      = render for_moderation? ? 'bulletin_row_for_moderation' : 'bulletin_row', item:
   = paginate @bulletins, params: { q: @q_params }

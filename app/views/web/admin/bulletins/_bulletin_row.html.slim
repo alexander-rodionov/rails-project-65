@@ -6,4 +6,5 @@ tr
   td
     = link_to t('admin.action.show'), bulletin_path(item), class: 'me-2'
     - if item.may_archive?
-      = link_to t('admin.action.archive'), archive_bulletin_path(item), class: 'me-2 text-danger', data: { turbo_method: :patch, turbo_confirm: t('admin.confirm.archive') }
+      = link_to t('admin.action.archive'), archive_bulletin_path(item),
+        class: 'me-2 text-danger', data: { turbo_method: :patch, turbo_confirm: t('admin.confirm.archive') }

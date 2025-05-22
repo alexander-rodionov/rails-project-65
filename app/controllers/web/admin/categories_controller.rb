@@ -17,23 +17,23 @@ module Web
 
       def create
         @category = Category.new(category_params)
-        @category.save!
-        redirect_to admin_categories_path,
-                    notice: t('admin.message.category.created')
-      rescue StandardError => e
-        register_rollbar_error(e)
-        flash.now[:alert] = t('admin.message.category.create_failed')
-        render :new, status: :unprocessable_entity
+        if @category.save
+          redirect_to admin_categories_path,
+                      notice: t('admin.message.category.created')
+        else
+          flash.now[:alert] = t('admin.message.category.create_failed')
+          render :new, status: :unprocessable_entity
+        end
       end
 
       def update
-        @category.update!(category_params)
-        redirect_to admin_categories_path,
-                    notice: t('admin.message.category.updated')
-      rescue StandardError => e
-        register_rollbar_error(e)
-        flash.now[:alert] = t('admin.message.category.update_failed')
-        render :edit, status: :unprocessable_entity
+        if @category.update(category_params)
+          redirect_to admin_categories_path,
+                      notice: t('admin.message.category.updated')
+        else
+          flash.now[:alert] = t('admin.message.category.update_failed')
+          render :edit, status: :unprocessable_entity
+        end
       end
 
       def destroy
@@ -43,9 +43,6 @@ module Web
         flash[:alert] = t('admin.message.category.destroy_failed_foreign_key')
       rescue ActiveRecord::RecordNotDestroyed
         flash[:alert] = t('admin.message.category.destroy_failed', errors: @category.errors.full_messages.to_sentence)
-      rescue StandardError => e
-        register_rollbar_error(e)
-        flash[:alert] = t('admin.message.category.destroy_failed')
       ensure
         redirect_to admin_categories_path
       end
@@ -54,6 +51,11 @@ module Web
 
       def category_params
         params.expect(category: [:name])
+      end
+
+      def set_category
+        @category = Category.find(params[:id])
+        authorize @category
       end
     end
   end

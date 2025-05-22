@@ -17,6 +17,10 @@ AllCops:
     - 'db/**/*.rake'
   Exclude:
     - bin/**
+    - vendor/**
+    - tmp/**
+    - public/**
+    - storage/**
 
 plugins: rubocop-rails
 

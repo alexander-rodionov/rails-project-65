@@ -3,4 +3,5 @@ tr
   td = item.name
   td
     = link_to t('admin.action.edit'), edit_admin_category_path(item), class: 'me-2'
-    = link_to t('admin.action.destroy'), admin_category_path(item), class: 'me-2 text-danger', data: { turbo_method: :delete, turbo_confirm: t('admin.confirm.destroy') }
+    = link_to t('admin.action.destroy'), admin_category_path(item),
+      class: 'me-2 text-danger', data: { turbo_method: :delete, turbo_confirm: t('admin.confirm.destroy') }

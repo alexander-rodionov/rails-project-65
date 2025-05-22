@@ -42,3 +42,86 @@ description - от 5 до 1000
 
 # REVIEW 2
 
++ 1) Cборка CI - это сборка реализованная студентом в рамках проекта. Конфиг сборки в котором описаны шаги. И мы видим по логам, что у линтера вопросы к файлам в папке vendor, которые создаются в результате выполнения кеширования бандлера. Процесс происходит в рамках сборки, поэтому локально линтер не видит проблему
+
+bundler-cache: true
+Мы можем добавить игнор папки vendor в rubocop.yml. Также с файлом конфигурации линтера rubocop.yml происходит что-то странное, там большая куча лишних правил. Я отправлю в маттермост в личку файл конфигурации из hexlet_check, чтобы все было красиво
+
++ 2) На свое усмотрение, но оптимальное количество строк в линтере лучше указать 120. Тогда мы сможем умещать такие валидации в одну строчку, тем самым уменьшая размер модели
+
++ 3) Экшн for_moderation лишний, это тот же самый index с ransack параметром статуса. Его необходимо убрать и использовать index с параметром фильтра
+
+4) В before экшенах
+
+    before_action :set_q_params, only: :index
+    before_action :set_page_params, only: :index
+нет никакого смысла, мы заменяем params[:q] и params[:page] методами, которые еще и убираем куда-то в родительский контроллер. Давай их уберем, и будем вызывать напрямую из params:
+
+      def index
+        @q = Bulletin.ransack(params[:q])
+        @bulletins = @q.result.page(params[:page]).per(25)
+        @total_pages = @bulletins.total_pages
+      end
+5) Необходимо убрать из проекта лишний код в комментариях, например тут
+
+6) Просто подсветить. Почему 17, а не 15 или 20?
+
+7) Совсем нехорошая практика в экшенах ловить исключения с помощью rescue StandardError => e. Если у нас будет банальная опечатка в коде, то мы даже не сможем сходу выловить эту ошибку и вообще узнать о ней. Лучше проверять возможность перевода статуса с помощью метода may_[название статуса]? Например:
+
+      def publish
+        if @bulletin.may_publish?
+          @bulletin.publish!
+          redirect_back fallback_location: admin_root_url, notice: t('.success')
+        else
+          redirect_back fallback_location: admin_root_url, notice: t('.error')
+        end
+      end
+Необходимо поправить логику во всех экшенах с переводом статуса
+
+8) Также плохая практика выносить методы before action в глобальный контроллер. set_bulletin нам нужен в двух контроллерах, а в объемном проекте их спокойно может быть больше нескольких сотен. Ничего страшного не случится, если мы продублируем эти методы в необходимых контроллерах. Давай разнесем в private зону следующие методы по контроллерам, где они используются:
+
+  def load_categories
+  def set_bulletin
+  def param_id
+  def set_category
+
+Следующие, как я писал выше вообще не нужны
+
+  def set_page_params
+    @page = params[:page] || 0
+  end
+
+  def set_q_params
+    @q_params = params[:q]&.permit(%i[title_cont category_id_eq]).to_h
+  end
+9) Вижу rescue StandardError => e присутствует вообще в большинстве экшенов, это необходимо исправить ,например:
+
+    def create
+      @bulletin = Bulletin.new(bulletin_params)
+      if @bulletin.save
+        redirect_to profile_path, notice: t('admin.message.bulletin.created')
+      else
+        flash.now[:alert] = t('admin.message.bulletin.create_failed')
+        render :new, status: :unprocessable_entity
+      end
+    rescue StandardError => e
+      register_rollbar_error(e)
+      render :new, alert: t('admin.message.bulletin.create_failed')
+    end
+
+можно исправить на
+
+    def create
+      @bulletin = current_user.bulletins.build(bulletin_params)
+
+      if @bulletin.save
+        redirect_to profile_path, notice: t('.success')
+      else
+        render :new, status: :unprocessable_entity
+      end
+    end
+
+Если где-то код падает, то пожалуйста, пусть падает. Баги не надо прятать, их должны найти тестировщики, а мы поправить
+
+На текущую итерацию правок достаточно Жду правки, после будем смотреть view и тесты
+

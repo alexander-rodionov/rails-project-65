@@ -9,12 +9,14 @@ class SessionsController < ApplicationController
     email = auth['info']['email'] || 'adfazsd@asdasd.ru'
     name = auth['info']['name'] || auth['info']['nickname'] || 'testname'
     user = User.find_by(email: email)
-    user ||= User.create!(name: name, email: email, admin: true)
-    session[:user_id] = user.id
-    redirect_to root_path, notice: t('message.logged_in')
-  rescue StandardError => e
-    register_rollbar_error(e)
-    redirect_to root_path, alert: t('message.log_in_error')
+    user ||= User.create(name: name, email: email, admin: true)
+    if user.present? && user.persisted?
+      session[:user_id] = user.id
+      redirect_to root_path, notice: t('message.logged_in')
+    else
+      session[:user_id] = nil
+      redirect_to root_path, alert: t('message.log_in_error')
+    end
   end
 
   def destroy

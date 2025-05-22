@@ -2,8 +2,12 @@
 
 module Admin
   module ApplicationControllerHelper
+    def for_moderation?
+      page_signature == 'bulletins#index#under_moderation'
+    end
+
     def page_signature
-      "#{controller_name}##{action_name}"
+      "#{controller_name}##{action_name}##{params&.[](:q)&.[](:state_eq)}"
     end
 
     def page_selector_css(page_selector, css_class)
