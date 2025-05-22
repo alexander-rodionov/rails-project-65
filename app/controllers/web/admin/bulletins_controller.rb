@@ -3,6 +3,8 @@
 module Web
   module Admin
     class BulletinsController < Web::Admin::ApplicationController
+      PAGE_SIZE = 17 
+
       before_action :set_bulletin, only: %i[reject publish archive]
       before_action :load_categories, only: %i[index]
 
@@ -10,7 +12,7 @@ module Web
         @q_params = params[:q]&.permit!
         @page = params[:page] || 0
         @q = Bulletin.ransack(@q_params)
-        @bulletins = @q.result.page(@page).per(17)
+        @bulletins = @q.result.page(@page).per(PAGE_SIZE)
         @total_pages = @bulletins.total_pages
       end
 

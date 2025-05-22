@@ -2,6 +2,8 @@
 
 module Web
   class BulletinsController < Web::ApplicationController
+    PAGE_SIZE = 8 
+
     before_action :set_bulletin, only: %i[show edit update to_moderate archive]
     before_action :load_categories, only: %i[new index edit create]
 
@@ -9,7 +11,7 @@ module Web
       @q_params = params[:q]&.permit!
       @page = params[:page] || 0
       @q = Bulletin.where(state: :published).ransack(@q_params)
-      @bulletins = @q.result.page(@page).per(8)
+      @bulletins = @q.result.page(@page).per(PAGE_SIZE)
       @total_pages = @bulletins.total_pages
     end
 
