@@ -3,7 +3,7 @@
 module Web
   module Admin
     class BulletinsController < Web::Admin::ApplicationController
-      PAGE_SIZE = 17 
+      PAGE_SIZE = 17
 
       before_action :set_bulletin, only: %i[reject publish archive]
       before_action :load_categories, only: %i[index]

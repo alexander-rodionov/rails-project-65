@@ -2,7 +2,7 @@
 
 module Web
   class BulletinsController < Web::ApplicationController
-    PAGE_SIZE = 8 
+    PAGE_SIZE = 8
 
     before_action :set_bulletin, only: %i[show edit update to_moderate archive]
     before_action :load_categories, only: %i[new index edit create]
